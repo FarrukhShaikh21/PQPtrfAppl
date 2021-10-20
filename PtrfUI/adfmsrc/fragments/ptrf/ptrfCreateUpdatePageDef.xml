@@ -121,5 +121,7 @@
           id="CompltetePortfolio" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action IterBinding="DssPlanTransferLinesView1Iterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <list IterBinding="DssPlanTransferHeaderView1Iterator" StaticList="false" Uses="LOV_GisLocationIdFk"
+          id="GisLocationIdFk" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

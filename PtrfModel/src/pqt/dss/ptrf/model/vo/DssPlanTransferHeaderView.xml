@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="DssPlanTransferHeaderView"
-  Version="12.2.1.0.31"
+  Version="12.2.1.11.57"
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
@@ -70,6 +70,10 @@
   <ViewAccessor
     Name="RadioGroup1"
     ViewObjectName="pqt.dss.ptrf.model.popUp.RadioGroup"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccLocationLov"
+    ViewObjectName="pqt.dss.ptrf.model.lov.LocationLov"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Fagentcode"
@@ -181,40 +185,60 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT DSSPLANTRANSFERHEADER.TR_HEADER_ID_PK,      
-       DSSPLANTRANSFERHEADER.FROM_AGENT_NO_FK,      
-       DSSPLANTRANSFERHEADER.FROM_PERSIS_SEC,      
-       DSSPLANTRANSFERHEADER.FROM_AGENT_PPORTFOLIO,      
-       DSSPLANTRANSFERHEADER.USER_ID_FK,      
-       DSSPLANTRANSFERHEADER.ENTER_DATE,      
-       DSSPLANTRANSFERHEADER.LAST_UPDATED_BY,      
-       DSSPLANTRANSFERHEADER.LAST_UPDATED_DATE,      
-       DSSPLANTRANSFERHEADER.DSS_STATUS,      
-       DSSPLANTRANSFERHEADER.BRANCH_STATUS,      
-       DSSPLANTRANSFERHEADER.BRANCH_NOTIF_ID_FK,      
-       DSSPLANTRANSFERHEADER.DSS_NOTIF_ID_FK,      
-       DSSPLANTRANSFERHEADER.BRANCH_CODE_FK,      
-       DSSPLANTRANSFERHEADER.FROM_PERSIS_THRD,      
-       DSSPLANTRANSFERHEADER.PTRF_DOC_NO,      
-       DSSPLANTRANSFERHEADER.USER_BRANCH,      
-       DSSPLANTRANSFERHEADER.WORKFLOW_STATUS,      
-       DSSPLANTRANSFERHEADER.WORKFLOW_NOTIFICATION_ID,      
-       DSSPLANTRANSFERHEADER.TRANSACTION_TYPE, 
-       DSSPLANTRANSFERHEADER.COMPLTETE_PORTFOLIO,      
-       DSSPLANTRANSFERHEADER.FROM_QUATERLY_BUS_POL,      
-       DSSPLANTRANSFERHEADER.FROM_QUATERLY_BUS,      
-       DSSPLANTRANSFERHEADER.FROM_HALF_YEARLY_BUS_POL,      
-       DSSPLANTRANSFERHEADER.FROM_HALF_YEARLY_BUS,      
-       DSSPLANTRANSFERHEADER.FROM_YEARLY_BUS_POL,      
-       DSSPLANTRANSFERHEADER.FROM_YEARLY_BUS,      
-       FAGENT.V_AGENT_CODE                            FAGENTCODE,      
-       FAGENT.AGENT_NAME                              FAGENTNAME,      
-       FAGENT.AGENT_RANK                              FDESIGNATION,      
-       FBR.V_BRANCH_NAME                              FBRANCHNAME      
-  FROM DSS_PLAN_TRANSFER_HEADER DSSPLANTRANSFERHEADER,      
-       VU_DSS_PTRF_AGENT_DETAIL FAGENT,      
-       VU_DSS_ST_BRANCH         FBR      
- WHERE DSSPLANTRANSFERHEADER.FROM_AGENT_NO_FK = FAGENT.N_AGENT_NO      
+  <ListBinding
+    Name="LOV_GisLocationIdFk"
+    ListVOName="AccLocationLov"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GisLocationIdFk"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IlLocIdPk"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Location"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT DSSPLANTRANSFERHEADER.TR_HEADER_ID_PK,        
+       DSSPLANTRANSFERHEADER.FROM_AGENT_NO_FK,        
+       DSSPLANTRANSFERHEADER.FROM_PERSIS_SEC,        
+       DSSPLANTRANSFERHEADER.FROM_AGENT_PPORTFOLIO,        
+       DSSPLANTRANSFERHEADER.USER_ID_FK,        
+       DSSPLANTRANSFERHEADER.ENTER_DATE,        
+       DSSPLANTRANSFERHEADER.LAST_UPDATED_BY,        
+       DSSPLANTRANSFERHEADER.LAST_UPDATED_DATE,        
+       DSSPLANTRANSFERHEADER.DSS_STATUS,        
+       DSSPLANTRANSFERHEADER.BRANCH_STATUS,        
+       DSSPLANTRANSFERHEADER.BRANCH_NOTIF_ID_FK,        
+       DSSPLANTRANSFERHEADER.DSS_NOTIF_ID_FK,        
+       DSSPLANTRANSFERHEADER.BRANCH_CODE_FK,        
+       DSSPLANTRANSFERHEADER.FROM_PERSIS_THRD,        
+       DSSPLANTRANSFERHEADER.PTRF_DOC_NO,        
+       DSSPLANTRANSFERHEADER.USER_BRANCH,        
+       DSSPLANTRANSFERHEADER.WORKFLOW_STATUS,        
+       DSSPLANTRANSFERHEADER.WORKFLOW_NOTIFICATION_ID,        
+       DSSPLANTRANSFERHEADER.TRANSACTION_TYPE,   
+       DSSPLANTRANSFERHEADER.COMPLTETE_PORTFOLIO,        
+       DSSPLANTRANSFERHEADER.FROM_QUATERLY_BUS_POL,        
+       DSSPLANTRANSFERHEADER.FROM_QUATERLY_BUS,        
+       DSSPLANTRANSFERHEADER.FROM_HALF_YEARLY_BUS_POL,        
+       DSSPLANTRANSFERHEADER.FROM_HALF_YEARLY_BUS,        
+       DSSPLANTRANSFERHEADER.FROM_YEARLY_BUS_POL,        
+       DSSPLANTRANSFERHEADER.FROM_YEARLY_BUS,       
+       DSSPLANTRANSFERHEADER.GIS_LOCATION_ID_FK,   
+       FAGENT.V_AGENT_CODE                            FAGENTCODE,        
+       FAGENT.AGENT_NAME                              FAGENTNAME,        
+       FAGENT.AGENT_RANK                              FDESIGNATION,        
+       FBR.V_BRANCH_NAME                              FBRANCHNAME        
+  FROM DSS_PLAN_TRANSFER_HEADER DSSPLANTRANSFERHEADER,        
+       VU_DSS_PTRF_AGENT_DETAIL FAGENT,        
+       VU_DSS_ST_BRANCH         FBR        
+ WHERE DSSPLANTRANSFERHEADER.FROM_AGENT_NO_FK = FAGENT.N_AGENT_NO        
    AND DSSPLANTRANSFERHEADER.BRANCH_CODE_FK = FBR.V_BRANCH_CODE]]></SQLQuery>
   <EntityUsage
     Name="DssPlanTransferHeader"
@@ -549,6 +573,20 @@
           ResId="pqt.dss.ptrf.model.vo.DssPlanTransferHeaderView.FromYearlyBus_FMT_FORMATTER"/>
         <FMT_FORMAT
           ResId="pqt.dss.ptrf.model.vo.DssPlanTransferHeaderView.FromYearlyBus_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GisLocationIdFk"
+    PrecisionRule="true"
+    EntityAttrName="GisLocationIdFk"
+    EntityUsage="DssPlanTransferHeader"
+    AliasName="GIS_LOCATION_ID_FK"
+    LOVName="LOV_GisLocationIdFk">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

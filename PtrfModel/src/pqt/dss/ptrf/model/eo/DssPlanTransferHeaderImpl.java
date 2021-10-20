@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.ViewObject;
 import oracle.jbo.domain.Char;
 import oracle.jbo.domain.Date;
 import oracle.jbo.domain.Number;
@@ -63,6 +64,7 @@ public class DssPlanTransferHeaderImpl extends EntityImpl {
         FromHalfYearlyBus,
         FromYearlyBusPol,
         FromYearlyBus,
+        GisLocationIdFk,
         DssPlanTransferLines;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -114,6 +116,7 @@ public class DssPlanTransferHeaderImpl extends EntityImpl {
     public static final int FROMHALFYEARLYBUS = AttributesEnum.FromHalfYearlyBus.index();
     public static final int FROMYEARLYBUSPOL = AttributesEnum.FromYearlyBusPol.index();
     public static final int FROMYEARLYBUS = AttributesEnum.FromYearlyBus.index();
+    public static final int GISLOCATIONIDFK = AttributesEnum.GisLocationIdFk.index();
     public static final int DSSPLANTRANSFERLINES = AttributesEnum.DssPlanTransferLines.index();
 
     /**
@@ -547,6 +550,22 @@ public class DssPlanTransferHeaderImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for GisLocationIdFk, using the alias name GisLocationIdFk.
+     * @return the value of GisLocationIdFk
+     */
+    public Number getGisLocationIdFk() {
+        return (Number) getAttributeInternal(GISLOCATIONIDFK);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for GisLocationIdFk.
+     * @param value value to set the GisLocationIdFk
+     */
+    public void setGisLocationIdFk(Number value) {
+        setAttributeInternal(GISLOCATIONIDFK, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getDssPlanTransferLines() {
@@ -578,6 +597,11 @@ public class DssPlanTransferHeaderImpl extends EntityImpl {
 //         setCompltetePortfolio("0");
          setBranchStatus("INCOMPLETE");
          setDssStatus("INCOMPLETE");
+         ViewObject vo=getDBTransaction().getRootApplicationModule().findViewObject("PlanUserLocVO");
+         if (vo!=null)
+           {
+                   vo.remove();
+           }
       
       FacesContext fctx = FacesContext.getCurrentInstance();
       ExternalContext ectx = fctx.getExternalContext();
@@ -585,6 +609,9 @@ public class DssPlanTransferHeaderImpl extends EntityImpl {
       try {
           setUserIdFk(new Number(userSession.getAttribute("pUserId")));
           setLastUpdatedBy(new Number(userSession.getAttribute("pUserId")));
+          vo=getDBTransaction().getRootApplicationModule().createViewObjectFromQueryStmt("PlanUserLocVO", "select  GIS_LOCATION_ID_FK from DSS_SM_USERS WHERE USER_ID_PK="+getUserIdFk());
+          vo.executeQuery();
+          setGisLocationIdFk(new Number( vo.first().getAttribute(0).toString() ) );
       } catch (SQLException ex) {
           setUserIdFk(new Number(0));
           setLastUpdatedBy(new Number(0));

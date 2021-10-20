@@ -20,6 +20,7 @@ import oracle.adf.view.rich.component.rich.layout.RichPanelHeader;
 import oracle.adf.view.rich.component.rich.layout.RichPanelStretchLayout;
 import oracle.adf.view.rich.component.rich.layout.RichToolbar;
 import oracle.adf.view.rich.component.rich.nav.RichButton;
+import oracle.adf.view.rich.component.rich.output.RichOutputText;
 import oracle.adf.view.rich.component.rich.output.RichPanelCollection;
 import oracle.adf.view.rich.event.LaunchPopupEvent;
 import oracle.adf.view.rich.event.ReturnPopupEvent;
@@ -63,6 +64,11 @@ public class ptrfCreateUpdate {
     private RichToolbar t1;
     private RichPanelHeader ph1;
     private RichPanelStretchLayout psl1;
+    private RichSelectOneChoice soc2;
+    private UISelectItems si3;
+    private RichPanelGroupLayout pgl2;
+    private RichOutputText ot1;
+    private RichOutputText ot2;
 
     public ptrfCreateUpdate() {
     }
@@ -365,4 +371,43 @@ public class ptrfCreateUpdate {
     }
 
 
+    public void setSoc2(RichSelectOneChoice soc2) {
+        this.soc2 = soc2;
+    }
+
+    public RichSelectOneChoice getSoc2() {
+        return soc2;
+    }
+
+    public void setSi3(UISelectItems si3) {
+        this.si3 = si3;
+    }
+
+    public UISelectItems getSi3() {
+        return si3;
+    }
+
+    public void setPgl2(RichPanelGroupLayout pgl2) {
+        this.pgl2 = pgl2;
+    }
+
+    public RichPanelGroupLayout getPgl2() {
+        return pgl2;
+    }
+
+    public void setOt1(RichOutputText ot1) {
+        this.ot1 = ot1;
+    }
+
+    public RichOutputText getOt1() {
+        return ot1;
+    }
+
+    public void setOt2(RichOutputText ot2) {
+        this.ot2 = ot2;
+    }
+
+    public RichOutputText getOt2() {
+        return ot2;
+    }
 }
