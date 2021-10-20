@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout layout="vertical" id="pgl1">
+        <af:panelHeader text="DssPlanTransferHeader" id="ph1">
+          <af:query id="qryId1" headerText="Search" disclosed="true"
+                    value="#{bindings.DssPlanTransferHeaderViewCriteriaQuery1.queryDescriptor}"
+                    model="#{bindings.DssPlanTransferHeaderViewCriteriaQuery1.queryModel}"
+                    queryListener="#{bindings.DssPlanTransferHeaderViewCriteriaQuery1.processQuery}"
+                    queryOperationListener="#{bindings.DssPlanTransferHeaderViewCriteriaQuery1.processQueryOperation}"
+                    resultComponentId="::pc1:resId1" saveQueryMode="hidden" modeChangeVisible="false"/>
+        </af:panelHeader>
+        <af:panelCollection id="pc1" featuresOff="detach viewMenu" styleClass="AFStretchWidth">
+          <f:facet name="toolbar">
+            <af:toolbar id="t1">
+              <af:button text="Create New" id="b1" action="goCreate"/>
+            </af:toolbar>
+          </f:facet>
+          <af:table value="#{bindings.DssPlanTransferHeaderView1.collectionModel}" var="row"
+                    rows="#{bindings.DssPlanTransferHeaderView1.rangeSize}"
+                    emptyText="#{bindings.DssPlanTransferHeaderView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.DssPlanTransferHeaderView1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.DssPlanTransferHeaderView1.collectionModel.makeCurrent}"
+                    rowSelection="single" fetchSize="#{bindings.DssPlanTransferHeaderView1.rangeSize}" id="resId1">
+            <af:column headerText="#{bindings.DssPlanTransferHeaderView1.hints.TrHeaderIdPk.label}" id="c6"
+                       rendered="false">
+              <af:inputText value="#{row.bindings.TrHeaderIdPk.inputValue}"
+                            label="#{bindings.DssPlanTransferHeaderView1.hints.TrHeaderIdPk.label}"
+                            required="#{bindings.DssPlanTransferHeaderView1.hints.TrHeaderIdPk.mandatory}"
+                            columns="#{bindings.DssPlanTransferHeaderView1.hints.TrHeaderIdPk.displayWidth}"
+                            maximumLength="#{bindings.DssPlanTransferHeaderView1.hints.TrHeaderIdPk.precision}"
+                            shortDesc="#{bindings.DssPlanTransferHeaderView1.hints.TrHeaderIdPk.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.TrHeaderIdPk.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.DssPlanTransferHeaderView1.hints.TrHeaderIdPk.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.DssPlanTransferHeaderView1.hints.PtrfDocNo.label}" id="resId1c1"
+                       width="150" align="center">
+              <af:outputText value="#{row.PtrfDocNo}"
+                             shortDesc="#{bindings.DssPlanTransferHeaderView1.hints.PtrfDocNo.tooltip}" id="ot1"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssPlanTransferHeaderView1.hints.TransactionType.label}" id="c5"
+                       width="180">
+              <af:selectOneChoice value="#{row.bindings.TransactionType.inputValue}"
+                                  label="#{row.bindings.TransactionType.label}"
+                                  required="#{bindings.DssPlanTransferHeaderView1.hints.TransactionType.mandatory}"
+                                  shortDesc="#{bindings.DssPlanTransferHeaderView1.hints.TransactionType.tooltip}"
+                                  id="soc1" disabled="true">
+                <f:selectItems value="#{row.bindings.TransactionType.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.TransactionType.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.DssPlanTransferHeaderView1.hints.Fagentcode.label}" id="resId1c3"
+                       align="center">
+              <af:outputText value="#{row.Fagentcode}"
+                             shortDesc="#{bindings.DssPlanTransferHeaderView1.hints.Fagentcode.tooltip}" id="ot3"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssPlanTransferHeaderView1.hints.Fagentname.label}" id="resId1c4"
+                       align="center">
+              <af:outputText value="#{row.Fagentname}"
+                             shortDesc="#{bindings.DssPlanTransferHeaderView1.hints.Fagentname.tooltip}" id="ot4"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssPlanTransferHeaderView1.hints.Fdesignation.label}" id="resId1c5"
+                       width="130" align="center">
+              <af:outputText value="#{row.Fdesignation}"
+                             shortDesc="#{bindings.DssPlanTransferHeaderView1.hints.Fdesignation.tooltip}" id="ot5"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssPlanTransferHeaderView1.hints.Fbranchname.label}" id="resId1c6"
+                       align="center">
+              <af:outputText value="#{row.Fbranchname}"
+                             shortDesc="#{bindings.DssPlanTransferHeaderView1.hints.Fbranchname.tooltip}" id="ot6"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssPlanTransferHeaderView1.hints.WorkflowStatus.label}" id="resId1c7"
+                       align="center">
+              <af:outputText value="#{row.WorkflowStatus}"
+                             shortDesc="#{bindings.DssPlanTransferHeaderView1.hints.WorkflowStatus.tooltip}" id="ot7"/>
+            </af:column>
+            <af:column id="c1" width="50" align="center" headerText="Detail">
+              <af:link id="l1" icon="/images/detailsicon_enabled.gif" action="goDetail"/>
+            </af:column>
+            <af:column id="c2" width="50" align="center" headerText="Update">
+              <af:link id="l2" icon="/images/updateicon_enabled.gif"
+                       disabled="#{row.WorkflowStatus eq 'APPROVED' or row.WorkflowStatus eq 'INPROCESS'}"
+                       action="goUpdate"/>
+            </af:column>
+            <af:column id="c3" width="50" align="center" headerText="Delete">
+              <af:link id="l3" icon="/images/deleteicon_enabled.gif" action="goDelete"
+                       disabled="#{row.WorkflowStatus eq 'APPROVED' or row.WorkflowStatus eq 'INPROCESS'}"/>
+            </af:column>
+            <af:column id="c4" width="50" align="center" headerText="Print">
+              <af:link id="l4" icon="/images/printLogo.gif"
+                       actionListener="#{CallReport.callDSSReports('DSS_PTRF', (row.bindings.TrHeaderIdPk.inputValue))}"/>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

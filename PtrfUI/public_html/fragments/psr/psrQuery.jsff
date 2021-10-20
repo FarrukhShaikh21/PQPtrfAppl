@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:panelGroupLayout layout="vertical" id="pgl1">
+        <af:panelHeader text="PSR SEARCH" id="ph1">
+          <af:query id="qryId1" headerText="Search" disclosed="true"
+                    value="#{bindings.DssPtPsrCommentsHeaderQVOCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.DssPtPsrCommentsHeaderQVOCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.DssPtPsrCommentsHeaderQVOCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.DssPtPsrCommentsHeaderQVOCriteriaQuery.processQueryOperation}"
+                    resultComponentId="::resId1" saveQueryMode="hidden" modeChangeVisible="false"/>
+        </af:panelHeader>
+        <af:table value="#{bindings.DssPtPsrCommentsHeaderQVO1.collectionModel}" var="row"
+                  rows="#{bindings.DssPtPsrCommentsHeaderQVO1.rangeSize}"
+                  emptyText="#{bindings.DssPtPsrCommentsHeaderQVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.DssPtPsrCommentsHeaderQVO1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.DssPtPsrCommentsHeaderQVO1.collectionModel.makeCurrent}"
+                  rowSelection="single" fetchSize="#{bindings.DssPtPsrCommentsHeaderQVO1.rangeSize}" id="resId1"
+                  scrollPolicy="page">
+          <af:column id="c2" align="center" headerText="Print PSR" width="50">
+            <af:link id="l2" icon="/images/printLogo.gif"
+                     actionListener="#{CallReport.callPSRReports('DSS_PSR_COMMENTS_REPORT', (row.bindings.PolNo.inputValue), (row.bindings.StartDate.inputValue))}"/>
+          </af:column>
+          <af:column id="c1" width="50" align="center" headerText="Update">
+            <af:link id="l1" icon="/images/updateicon_enabled.gif" action="goUpdate"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.PolNo.label}" id="resId1c1">
+            <af:outputText value="#{row.PolNo}" shortDesc="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.PolNo.tooltip}"
+                           id="ot1"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.StartDate.label}" id="c3">
+            <af:outputText value="#{row.StartDate}"
+                           shortDesc="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.StartDate.tooltip}" id="ot4">
+              <af:convertDateTime pattern="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.StartDate.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column headerText="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.BranchCode.label}" id="resId1c2">
+            <af:outputText value="#{row.BranchCode}"
+                           shortDesc="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.BranchCode.tooltip}" id="ot2"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.BranchName.label}" id="resId1c3">
+            <af:outputText value="#{row.BranchName}"
+                           shortDesc="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.BranchName.tooltip}" id="ot3"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.FromAgentName.label}" id="resId1c5">
+            <af:outputText value="#{row.FromAgentName}"
+                           shortDesc="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.FromAgentName.tooltip}" id="ot5"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.ToAgentName.label}" id="resId1c7">
+            <af:outputText value="#{row.ToAgentName}"
+                           shortDesc="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.ToAgentName.tooltip}" id="ot7"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.ManagerName.label}" id="resId1c8">
+            <af:outputText value="#{row.ManagerName}"
+                           shortDesc="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.ManagerName.tooltip}" id="ot8"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.BoComment.label}" id="c4" width="130">
+            <af:outputText value="#{row.BoComment}"
+                           shortDesc="#{bindings.DssPtPsrCommentsHeaderQVO1.hints.BoComment.tooltip}" id="ot6"/>
+          </af:column>
+        </af:table>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

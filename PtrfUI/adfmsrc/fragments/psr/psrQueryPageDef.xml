@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.3.15" id="psrQueryPageDef"
+                Package="fragments.psr">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DssPtPsrCommentsHeaderQVO1" RangeSize="15" DataControl="PtrfAMDataControl"
+              id="DssPtPsrCommentsHeaderQVO1Iterator"/>
+    <searchRegion Criteria="DssPtPsrCommentsHeaderQVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DssPtPsrCommentsHeaderQVO1Iterator" id="DssPtPsrCommentsHeaderQVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="DssPtPsrCommentsHeaderQVO1">
+      <nodeDefinition DefName="pqt.dss.ptrf.model.vo.psr.DssPtPsrCommentsHeaderQVO" Name="DssPtPsrCommentsHeaderQVO10">
+        <AttrNames>
+          <Item Value="PolNo"/>
+          <Item Value="BranchCode"/>
+          <Item Value="BranchName"/>
+          <Item Value="FromAgentCode"/>
+          <Item Value="FromAgentName"/>
+          <Item Value="ToAgentCode"/>
+          <Item Value="ToAgentName"/>
+          <Item Value="ManagerName"/>
+          <Item Value="StartDate"/>
+          <Item Value="BoComment"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

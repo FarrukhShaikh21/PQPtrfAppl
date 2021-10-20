@@ -1,0 +1,429 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1" binding="#{backingBeanScope.ptrfCreateUpdate.psl1}">
+    <f:facet name="center">
+      <af:panelHeader text="Create / Update Page" id="ph1" binding="#{backingBeanScope.ptrfCreateUpdate.ph1}">
+        <f:facet name="toolbar">
+          <af:toolbar id="t1" binding="#{backingBeanScope.ptrfCreateUpdate.t1}">
+            <af:button text="Save Record" id="b1" action="#{backingBeanScope.ptrfCreateUpdate.Save_action}"
+                       binding="#{backingBeanScope.ptrfCreateUpdate.b1}"/>
+            <af:button text="Back to Search" id="b2" immediate="true"
+                       binding="#{backingBeanScope.ptrfCreateUpdate.b2}" action="backQuery"/>
+          </af:toolbar>
+        </f:facet>
+        <af:panelGroupLayout id="pgl1" layout="vertical" binding="#{backingBeanScope.ptrfCreateUpdate.pgl1}">
+          <af:panelHeader text="Plan Transfering From" id="ph2" binding="#{backingBeanScope.ptrfCreateUpdate.ph2}">
+            <af:panelFormLayout id="pfl1" rows="9" binding="#{backingBeanScope.ptrfCreateUpdate.pfl1}">
+              <af:selectOneChoice value="#{bindings.TransactionType.inputValue}"
+                                  label="#{bindings.TransactionType.label}"
+                                  required="#{bindings.TransactionType.hints.mandatory}"
+                                  shortDesc="#{bindings.TransactionType.hints.tooltip}" id="soc1"
+                                  binding="#{backingBeanScope.ptrfCreateUpdate.soc1}" contentStyle="font-weight:bold;"
+                                  labelStyle="font-weight:bold;">
+                <f:selectItems value="#{bindings.TransactionType.items}" id="si1"
+                               binding="#{backingBeanScope.ptrfCreateUpdate.si1}"/>
+                <f:validator binding="#{bindings.TransactionType.validator}"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.PtrfDocNo.inputValue}" label="#{bindings.PtrfDocNo.hints.label}"
+                            required="#{bindings.PtrfDocNo.hints.mandatory}"
+                            columns="#{bindings.PtrfDocNo.hints.displayWidth}"
+                            maximumLength="#{bindings.PtrfDocNo.hints.precision}"
+                            shortDesc="#{bindings.PtrfDocNo.hints.tooltip}" id="it2" disabled="true"
+                            binding="#{backingBeanScope.ptrfCreateUpdate.it2}" contentStyle="font-weight:bold;"
+                            labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.PtrfDocNo.validator}"/>
+              </af:inputText>
+              <af:inputListOfValues id="fbranchnameId"
+                                    popupTitle="Search and Select: #{bindings.Fbranchname.hints.label}"
+                                    value="#{bindings.Fbranchname.inputValue}"
+                                    label="#{bindings.Fbranchname.hints.label}"
+                                    model="#{bindings.Fbranchname.listOfValuesModel}"
+                                    columns="#{bindings.Fbranchname.hints.displayWidth}"
+                                    shortDesc="#{bindings.Fbranchname.hints.tooltip}"
+                                    required="#{bindings.Fbranchname.hints.mandatory}"
+                                    disabled="#{bindings.DssPlanTransferLinesView1.estimatedRowCount > 0}"
+                                    partialTriggers="pc1:b3"
+                                    binding="#{backingBeanScope.ptrfCreateUpdate.fbranchnameId}"
+                                    contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.Fbranchname.validator}"/>
+              </af:inputListOfValues>
+              <af:inputListOfValues id="fagentcodeId" popupTitle="Search and Select: #{bindings.Fagentcode.hints.label}"
+                                    value="#{bindings.Fagentcode.inputValue}" label="#{bindings.Fagentcode.hints.label}"
+                                    model="#{bindings.Fagentcode.listOfValuesModel}"
+                                    columns="#{bindings.Fagentcode.hints.displayWidth}"
+                                    shortDesc="#{bindings.Fagentcode.hints.tooltip}"
+                                    required="#{bindings.Fagentcode.hints.mandatory}"
+                                    disabled="#{bindings.DssPlanTransferLinesView1.estimatedRowCount > 0}"
+                                    partialTriggers="pc1:b3"
+                                    binding="#{backingBeanScope.ptrfCreateUpdate.fagentcodeId}"
+                                    contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.Fagentcode.validator}"/>
+              </af:inputListOfValues>
+              <af:inputText value="#{bindings.Fagentname.inputValue}" label="#{bindings.Fagentname.hints.label}"
+                            required="#{bindings.Fagentname.hints.mandatory}"
+                            columns="#{bindings.Fagentname.hints.displayWidth}"
+                            maximumLength="#{bindings.Fagentname.hints.precision}"
+                            shortDesc="#{bindings.Fagentname.hints.tooltip}" partialTriggers="fagentcodeId" id="it3"
+                            disabled="true" binding="#{backingBeanScope.ptrfCreateUpdate.it3}"
+                            contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.Fagentname.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Fdesignation.inputValue}" label="#{bindings.Fdesignation.hints.label}"
+                            required="#{bindings.Fdesignation.hints.mandatory}"
+                            columns="#{bindings.Fdesignation.hints.displayWidth}"
+                            maximumLength="#{bindings.Fdesignation.hints.precision}"
+                            shortDesc="#{bindings.Fdesignation.hints.tooltip}" partialTriggers="fagentcodeId" id="it4"
+                            disabled="true" binding="#{backingBeanScope.ptrfCreateUpdate.it4}"
+                            contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.Fdesignation.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FromPersisSec.inputValue}" label="#{bindings.FromPersisSec.hints.label}"
+                            required="#{bindings.FromPersisSec.hints.mandatory}"
+                            columns="#{bindings.FromPersisSec.hints.displayWidth}"
+                            maximumLength="#{bindings.FromPersisSec.hints.precision}"
+                            shortDesc="#{bindings.FromPersisSec.hints.tooltip}" partialTriggers="fagentcodeId" id="it5"
+                            disabled="true" binding="#{backingBeanScope.ptrfCreateUpdate.it5}"
+                            contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.FromPersisSec.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.FromPersisSec.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FromPersisThrd.inputValue}" label="#{bindings.FromPersisThrd.hints.label}"
+                            required="#{bindings.FromPersisThrd.hints.mandatory}"
+                            columns="#{bindings.FromPersisThrd.hints.displayWidth}"
+                            maximumLength="#{bindings.FromPersisThrd.hints.precision}"
+                            shortDesc="#{bindings.FromPersisThrd.hints.tooltip}" partialTriggers="fagentcodeId" id="it6"
+                            disabled="true" binding="#{backingBeanScope.ptrfCreateUpdate.it6}"
+                            contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.FromPersisThrd.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.FromPersisThrd.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FromAgentPportfolio.inputValue}"
+                            label="#{bindings.FromAgentPportfolio.hints.label}"
+                            required="#{bindings.FromAgentPportfolio.hints.mandatory}"
+                            columns="#{bindings.FromAgentPportfolio.hints.displayWidth}"
+                            maximumLength="#{bindings.FromAgentPportfolio.hints.precision}"
+                            shortDesc="#{bindings.FromAgentPportfolio.hints.tooltip}" partialTriggers="fagentcodeId"
+                            id="it7" disabled="true" binding="#{backingBeanScope.ptrfCreateUpdate.it7}"
+                            contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.FromAgentPportfolio.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.FromAgentPportfolio.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.WorkflowStatus.inputValue}" label="#{bindings.WorkflowStatus.hints.label}"
+                            required="#{bindings.WorkflowStatus.hints.mandatory}"
+                            columns="#{bindings.WorkflowStatus.hints.displayWidth}"
+                            maximumLength="#{bindings.WorkflowStatus.hints.precision}"
+                            shortDesc="#{bindings.WorkflowStatus.hints.tooltip}" id="it8" disabled="true"
+                            binding="#{backingBeanScope.ptrfCreateUpdate.it8}" contentStyle="font-weight:bold;"
+                            labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.WorkflowStatus.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FromQuaterlyBusPol.inputValue}"
+                            label="#{bindings.FromQuaterlyBusPol.hints.label}"
+                            required="#{bindings.FromQuaterlyBusPol.hints.mandatory}"
+                            columns="#{bindings.FromQuaterlyBusPol.hints.displayWidth}"
+                            maximumLength="#{bindings.FromQuaterlyBusPol.hints.precision}"
+                            shortDesc="#{bindings.FromQuaterlyBusPol.hints.tooltip}" partialTriggers="fagentcodeId"
+                            id="it9" disabled="true" binding="#{backingBeanScope.ptrfCreateUpdate.it9}"
+                            contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.FromQuaterlyBusPol.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.FromQuaterlyBusPol.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FromQuaterlyBus.inputValue}"
+                            label="#{bindings.FromQuaterlyBus.hints.label}"
+                            required="#{bindings.FromQuaterlyBus.hints.mandatory}"
+                            columns="#{bindings.FromQuaterlyBus.hints.displayWidth}"
+                            maximumLength="#{bindings.FromQuaterlyBus.hints.precision}"
+                            shortDesc="#{bindings.FromQuaterlyBus.hints.tooltip}" partialTriggers="fagentcodeId"
+                            id="it10" disabled="true" binding="#{backingBeanScope.ptrfCreateUpdate.it10}"
+                            contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.FromQuaterlyBus.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.FromQuaterlyBus.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FromHalfYearlyBusPol.inputValue}"
+                            label="#{bindings.FromHalfYearlyBusPol.hints.label}"
+                            required="#{bindings.FromHalfYearlyBusPol.hints.mandatory}"
+                            columns="#{bindings.FromHalfYearlyBusPol.hints.displayWidth}"
+                            maximumLength="#{bindings.FromHalfYearlyBusPol.hints.precision}"
+                            shortDesc="#{bindings.FromHalfYearlyBusPol.hints.tooltip}" partialTriggers="fagentcodeId"
+                            id="it11" disabled="true" binding="#{backingBeanScope.ptrfCreateUpdate.it11}"
+                            contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.FromHalfYearlyBusPol.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.FromHalfYearlyBusPol.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FromHalfYearlyBus.inputValue}"
+                            label="#{bindings.FromHalfYearlyBus.hints.label}"
+                            required="#{bindings.FromHalfYearlyBus.hints.mandatory}"
+                            columns="#{bindings.FromHalfYearlyBus.hints.displayWidth}"
+                            maximumLength="#{bindings.FromHalfYearlyBus.hints.precision}"
+                            shortDesc="#{bindings.FromHalfYearlyBus.hints.tooltip}" partialTriggers="fagentcodeId"
+                            id="it12" disabled="true" binding="#{backingBeanScope.ptrfCreateUpdate.it12}"
+                            contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.FromHalfYearlyBus.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.FromHalfYearlyBus.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FromYearlyBusPol.inputValue}"
+                            label="#{bindings.FromYearlyBusPol.hints.label}"
+                            required="#{bindings.FromYearlyBusPol.hints.mandatory}"
+                            columns="#{bindings.FromYearlyBusPol.hints.displayWidth}"
+                            maximumLength="#{bindings.FromYearlyBusPol.hints.precision}"
+                            shortDesc="#{bindings.FromYearlyBusPol.hints.tooltip}" partialTriggers="fagentcodeId"
+                            id="it13" disabled="true" binding="#{backingBeanScope.ptrfCreateUpdate.it13}"
+                            contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.FromYearlyBusPol.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.FromYearlyBusPol.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.FromYearlyBus.inputValue}" label="#{bindings.FromYearlyBus.hints.label}"
+                            required="#{bindings.FromYearlyBus.hints.mandatory}"
+                            columns="#{bindings.FromYearlyBus.hints.displayWidth}"
+                            maximumLength="#{bindings.FromYearlyBus.hints.precision}"
+                            shortDesc="#{bindings.FromYearlyBus.hints.tooltip}" partialTriggers="fagentcodeId" id="it14"
+                            disabled="true" binding="#{backingBeanScope.ptrfCreateUpdate.it14}"
+                            contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.FromYearlyBus.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.FromYearlyBus.format}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.EnterDate.inputValue}" label="#{bindings.EnterDate.hints.label}"
+                            required="#{bindings.EnterDate.hints.mandatory}"
+                            columns="#{bindings.EnterDate.hints.displayWidth}"
+                            shortDesc="#{bindings.EnterDate.hints.tooltip}" id="id1"
+                            binding="#{backingBeanScope.ptrfCreateUpdate.id1}" contentStyle="font-weight:bold;"
+                            labelStyle="font-weight:bold;">
+                <f:validator binding="#{bindings.EnterDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.EnterDate.format}"/>
+              </af:inputDate>
+              <af:selectOneRadio value="#{bindings.CompltetePortfolio.inputValue}"
+                                 label="#{bindings.CompltetePortfolio.label}"
+                                 required="#{bindings.CompltetePortfolio.hints.mandatory}"
+                                 shortDesc="#{bindings.CompltetePortfolio.hints.tooltip}" id="sor1" autoSubmit="true"
+                                 immediate="true"
+                                 disabled="#{bindings.DssPlanTransferLinesView1.estimatedRowCount != 1}"
+                                 partialTriggers="pc1:b3" binding="#{backingBeanScope.ptrfCreateUpdate.sor1}"
+                                 contentStyle="font-weight:bold;" labelStyle="font-weight:bold;">
+                <f:selectItems value="#{bindings.CompltetePortfolio.items}" id="si2"
+                               binding="#{backingBeanScope.ptrfCreateUpdate.si2}"/>
+                <f:validator binding="#{bindings.CompltetePortfolio.validator}"/>
+              </af:selectOneRadio>
+            </af:panelFormLayout>
+          </af:panelHeader>
+          <af:panelHeader text="Plan Transfering To " id="ph3" binding="#{backingBeanScope.ptrfCreateUpdate.ph3}">
+            <af:panelCollection id="pc1" styleClass="AFStretchWidth" featuresOff="detach viewMenu"
+                                binding="#{backingBeanScope.ptrfCreateUpdate.pc1}">
+              <f:facet name="toolbar">
+                <af:toolbar id="t3" binding="#{backingBeanScope.ptrfCreateUpdate.t3}">
+                  <af:button text="Add Agent" id="b3" actionListener="#{bindings.CreateInsert.execute}"
+                             disabled="#{bindings.CompltetePortfolio.inputValue eq 'Y'}" partialTriggers="::sor1"
+                             binding="#{backingBeanScope.ptrfCreateUpdate.b3}"/>
+                </af:toolbar>
+              </f:facet>
+              <af:table value="#{bindings.DssPlanTransferLinesView1.collectionModel}" var="row"
+                        rows="#{bindings.DssPlanTransferLinesView1.rangeSize}"
+                        emptyText="#{bindings.DssPlanTransferLinesView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.DssPlanTransferLinesView1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.DssPlanTransferLinesView1.collectionModel.makeCurrent}"
+                        rowSelection="single" fetchSize="#{bindings.DssPlanTransferLinesView1.rangeSize}" id="t2"
+                        partialTriggers="::b3 l2" binding="#{backingBeanScope.ptrfCreateUpdate.t2}">
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.calLineDtlRow.label}" id="c14"
+                           width="50" align="center">
+                  <af:inputText value="#{row.bindings.calLineDtlRow.inputValue}"
+                                label="#{bindings.DssPlanTransferLinesView1.hints.calLineDtlRow.label}"
+                                required="#{bindings.DssPlanTransferLinesView1.hints.calLineDtlRow.mandatory}"
+                                columns="#{bindings.DssPlanTransferLinesView1.hints.calLineDtlRow.displayWidth}"
+                                maximumLength="#{bindings.DssPlanTransferLinesView1.hints.calLineDtlRow.precision}"
+                                shortDesc="#{bindings.DssPlanTransferLinesView1.hints.calLineDtlRow.tooltip}" id="it1"
+                                disabled="true">
+                    <f:validator binding="#{row.bindings.calLineDtlRow.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column id="c15" width="50" headerText="Delete" align="center">
+                  <af:link id="l2" icon="/images/deleteicon_enabled.gif" actionListener="#{bindings.Delete.execute}"
+                           immediate="true"/>
+                </af:column>
+                <af:column id="c21" headerText="Add Policy" align="center" width="50">
+                  <af:link id="l1" action="goCreate" icon="/images/addicon_enabled.gif"/>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.Tbranchname.label}" id="c4"
+                           align="center" width="150">
+                  <af:inputListOfValues id="tbranchnameId"
+                                        popupTitle="Search and Select: #{bindings.DssPlanTransferLinesView1.hints.Tbranchname.label}"
+                                        value="#{row.bindings.Tbranchname.inputValue}"
+                                        model="#{row.bindings.Tbranchname.listOfValuesModel}"
+                                        required="#{bindings.DssPlanTransferLinesView1.hints.Tbranchname.mandatory}"
+                                        columns="#{bindings.DssPlanTransferLinesView1.hints.Tbranchname.displayWidth}"
+                                        shortDesc="#{bindings.DssPlanTransferLinesView1.hints.Tbranchname.tooltip}">
+                    <f:validator binding="#{row.bindings.Tbranchname.validator}"/>
+                  </af:inputListOfValues>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.Tagentcode.label}" id="c1" width="150"
+                           align="center">
+                  <af:inputListOfValues id="tagentcodeId"
+                                        popupTitle="Search and Select: #{bindings.DssPlanTransferLinesView1.hints.Tagentcode.label}"
+                                        value="#{row.bindings.Tagentcode.inputValue}"
+                                        model="#{row.bindings.Tagentcode.listOfValuesModel}"
+                                        columns="#{bindings.DssPlanTransferLinesView1.hints.Tagentcode.displayWidth}"
+                                        shortDesc="#{bindings.DssPlanTransferLinesView1.hints.Tagentcode.tooltip}"
+                                        required="true">
+                    <f:validator binding="#{row.bindings.Tagentcode.validator}"/>
+                  </af:inputListOfValues>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.Tagentname.label}" id="c2"
+                           align="center">
+                  <af:inputText value="#{row.bindings.Tagentname.inputValue}"
+                                label="#{bindings.DssPlanTransferLinesView1.hints.Tagentname.label}"
+                                required="#{bindings.DssPlanTransferLinesView1.hints.Tagentname.mandatory}"
+                                columns="#{bindings.DssPlanTransferLinesView1.hints.Tagentname.displayWidth}"
+                                maximumLength="#{bindings.DssPlanTransferLinesView1.hints.Tagentname.precision}"
+                                shortDesc="#{bindings.DssPlanTransferLinesView1.hints.Tagentname.tooltip}" id="it16"
+                                disabled="true">
+                    <f:validator binding="#{row.bindings.Tagentname.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.Tdesignation.label}" id="c3"
+                           width="120" align="center">
+                  <af:inputText value="#{row.bindings.Tdesignation.inputValue}"
+                                label="#{bindings.DssPlanTransferLinesView1.hints.Tdesignation.label}"
+                                required="#{bindings.DssPlanTransferLinesView1.hints.Tdesignation.mandatory}"
+                                columns="#{bindings.DssPlanTransferLinesView1.hints.Tdesignation.displayWidth}"
+                                maximumLength="#{bindings.DssPlanTransferLinesView1.hints.Tdesignation.precision}"
+                                shortDesc="#{bindings.DssPlanTransferLinesView1.hints.Tdesignation.tooltip}" id="it17"
+                                disabled="true">
+                    <f:validator binding="#{row.bindings.Tdesignation.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.ToPersisSec.label}" id="c5"
+                           width="130" align="center">
+                  <af:inputText value="#{row.bindings.ToPersisSec.inputValue}"
+                                label="#{bindings.DssPlanTransferLinesView1.hints.ToPersisSec.label}"
+                                required="#{bindings.DssPlanTransferLinesView1.hints.ToPersisSec.mandatory}"
+                                columns="#{bindings.DssPlanTransferLinesView1.hints.ToPersisSec.displayWidth}"
+                                maximumLength="#{bindings.DssPlanTransferLinesView1.hints.ToPersisSec.precision}"
+                                shortDesc="#{bindings.DssPlanTransferLinesView1.hints.ToPersisSec.tooltip}" id="it18"
+                                disabled="true">
+                    <f:validator binding="#{row.bindings.ToPersisSec.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DssPlanTransferLinesView1.hints.ToPersisSec.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.ToPersisThrd.label}" id="c6"
+                           width="140" align="center">
+                  <af:inputText value="#{row.bindings.ToPersisThrd.inputValue}"
+                                label="#{bindings.DssPlanTransferLinesView1.hints.ToPersisThrd.label}"
+                                required="#{bindings.DssPlanTransferLinesView1.hints.ToPersisThrd.mandatory}"
+                                columns="#{bindings.DssPlanTransferLinesView1.hints.ToPersisThrd.displayWidth}"
+                                maximumLength="#{bindings.DssPlanTransferLinesView1.hints.ToPersisThrd.precision}"
+                                shortDesc="#{bindings.DssPlanTransferLinesView1.hints.ToPersisThrd.tooltip}" id="it19"
+                                disabled="true">
+                    <f:validator binding="#{row.bindings.ToPersisThrd.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DssPlanTransferLinesView1.hints.ToPersisThrd.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBusPol.label}" id="c7"
+                           width="140" align="center">
+                  <af:inputText value="#{row.bindings.ToQuaterlyBusPol.inputValue}"
+                                label="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBusPol.label}"
+                                required="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBusPol.mandatory}"
+                                columns="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBusPol.displayWidth}"
+                                maximumLength="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBusPol.precision}"
+                                shortDesc="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBusPol.tooltip}"
+                                id="it20" disabled="true">
+                    <f:validator binding="#{row.bindings.ToQuaterlyBusPol.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBusPol.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBus.label}" id="c8"
+                           width="120" align="center">
+                  <af:inputText value="#{row.bindings.ToQuaterlyBus.inputValue}"
+                                label="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBus.label}"
+                                required="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBus.mandatory}"
+                                columns="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBus.displayWidth}"
+                                maximumLength="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBus.precision}"
+                                shortDesc="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBus.tooltip}" id="it21"
+                                disabled="true">
+                    <f:validator binding="#{row.bindings.ToQuaterlyBus.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DssPlanTransferLinesView1.hints.ToQuaterlyBus.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBusPol.label}" id="c9"
+                           width="140" align="center">
+                  <af:inputText value="#{row.bindings.ToHalfYearlyBusPol.inputValue}"
+                                label="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBusPol.label}"
+                                required="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBusPol.mandatory}"
+                                columns="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBusPol.displayWidth}"
+                                maximumLength="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBusPol.precision}"
+                                shortDesc="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBusPol.tooltip}"
+                                id="it22" disabled="true">
+                    <f:validator binding="#{row.bindings.ToHalfYearlyBusPol.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBusPol.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBus.label}" id="c10"
+                           width="120" align="center">
+                  <af:inputText value="#{row.bindings.ToHalfYearlyBus.inputValue}"
+                                label="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBus.label}"
+                                required="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBus.mandatory}"
+                                columns="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBus.displayWidth}"
+                                maximumLength="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBus.precision}"
+                                shortDesc="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBus.tooltip}"
+                                id="it23" disabled="true">
+                    <f:validator binding="#{row.bindings.ToHalfYearlyBus.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DssPlanTransferLinesView1.hints.ToHalfYearlyBus.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBusPol.label}" id="c11"
+                           width="130" align="center">
+                  <af:inputText value="#{row.bindings.ToYearlyBusPol.inputValue}"
+                                label="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBusPol.label}"
+                                required="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBusPol.mandatory}"
+                                columns="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBusPol.displayWidth}"
+                                maximumLength="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBusPol.precision}"
+                                shortDesc="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBusPol.tooltip}"
+                                id="it24" disabled="true">
+                    <f:validator binding="#{row.bindings.ToYearlyBusPol.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBusPol.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBus.label}" id="c12"
+                           width="120" align="center">
+                  <af:inputText value="#{row.bindings.ToYearlyBus.inputValue}"
+                                label="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBus.label}"
+                                required="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBus.mandatory}"
+                                columns="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBus.displayWidth}"
+                                maximumLength="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBus.precision}"
+                                shortDesc="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBus.tooltip}" id="it25"
+                                disabled="true">
+                    <f:validator binding="#{row.bindings.ToYearlyBus.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DssPlanTransferLinesView1.hints.ToYearlyBus.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLinesView1.hints.ToAgentPortfolio.label}" id="c13"
+                           width="120" align="center">
+                  <af:inputText value="#{row.bindings.ToAgentPortfolio.inputValue}"
+                                label="#{bindings.DssPlanTransferLinesView1.hints.ToAgentPortfolio.label}"
+                                required="#{bindings.DssPlanTransferLinesView1.hints.ToAgentPortfolio.mandatory}"
+                                columns="#{bindings.DssPlanTransferLinesView1.hints.ToAgentPortfolio.displayWidth}"
+                                maximumLength="#{bindings.DssPlanTransferLinesView1.hints.ToAgentPortfolio.precision}"
+                                shortDesc="#{bindings.DssPlanTransferLinesView1.hints.ToAgentPortfolio.tooltip}"
+                                id="it26" disabled="true">
+                    <f:validator binding="#{row.bindings.ToAgentPortfolio.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DssPlanTransferLinesView1.hints.ToAgentPortfolio.format}"/>
+                  </af:inputText>
+                </af:column>
+              </af:table>
+            </af:panelCollection>
+          </af:panelHeader>
+        </af:panelGroupLayout>
+      </af:panelHeader>
+    </f:facet>
+  </af:panelStretchLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:ptrfCreateUpdate-->
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:ptrfCreateUpdate-->
+</ui:composition>

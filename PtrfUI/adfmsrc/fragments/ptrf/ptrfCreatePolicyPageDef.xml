@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="ptrfCreatePolicyPageDef"
+                Package="fragments.ptrf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DssPlanTransferLinesView1" RangeSize="25" DataControl="PtrfAMDataControl"
+              id="DssPlanTransferLinesView1Iterator"/>
+    <iterator Binds="DssPlanTransferLineDetailsView2" RangeSize="25" DataControl="PtrfAMDataControl"
+              id="DssPlanTransferLineDetailsView2Iterator"/>
+    <iterator Binds="PolicyNoVoLOV1" RangeSize="25" DataControl="PtrfAMDataControl" id="PolicyNoVoLOV1Iterator"/>
+    <searchRegion Criteria="PolicyNoVoLOVCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="PolicyNoVoLOV1Iterator" id="PolicyNoVoLOVCriteriaQuery" Refresh="always"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="DssPlanTransferLinesView1Iterator" StaticList="false" Uses="LOV_Tagentcode"
+                  id="Tagentcode"/>
+    <listOfValues IterBinding="DssPlanTransferLinesView1Iterator" StaticList="false" Uses="LOV_Tbranchname"
+                  id="Tbranchname"/>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="Tagentname">
+      <AttrNames>
+        <Item Value="Tagentname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="Tdesignation">
+      <AttrNames>
+        <Item Value="Tdesignation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="ToAgentPortfolio">
+      <AttrNames>
+        <Item Value="ToAgentPortfolio"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="ToPersisSec">
+      <AttrNames>
+        <Item Value="ToPersisSec"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="ToPersisThrd">
+      <AttrNames>
+        <Item Value="ToPersisThrd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="ToQuaterlyBusPol">
+      <AttrNames>
+        <Item Value="ToQuaterlyBusPol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="ToQuaterlyBus">
+      <AttrNames>
+        <Item Value="ToQuaterlyBus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="ToHalfYearlyBusPol">
+      <AttrNames>
+        <Item Value="ToHalfYearlyBusPol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="ToHalfYearlyBus">
+      <AttrNames>
+        <Item Value="ToHalfYearlyBus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="ToYearlyBusPol">
+      <AttrNames>
+        <Item Value="ToYearlyBusPol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="ToYearlyBus">
+      <AttrNames>
+        <Item Value="ToYearlyBus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="EnterDate">
+      <AttrNames>
+        <Item Value="EnterDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="DssPlanTransferLineDetailsView2Iterator" id="DssPlanTransferLineDetailsView2">
+      <nodeDefinition DefName="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView"
+                      Name="DssPlanTransferLineDetailsView20">
+        <AttrNames>
+          <Item Value="PolicyNo"/>
+          <Item Value="ParticipantName"/>
+          <Item Value="CommencementDate"/>
+          <Item Value="RegularContribtion"/>
+          <Item Value="PlanMode"/>
+          <Item Value="DueDateLastPayment"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DssPlanTransferLineDetailsView2Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <methodAction id="Apply" RequiresUpdateModel="true" Action="invokeMethod" MethodName="Apply"
+                  IsViewObjectMethod="false" DataControl="PtrfAMDataControl"
+                  InstanceName="data.PtrfAMDataControl.dataProvider"/>
+    <action IterBinding="DssPlanTransferLineDetailsView2Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="PopulatePolicy" RequiresUpdateModel="true" Action="invokeMethod" MethodName="PopulatePolicy"
+                  IsViewObjectMethod="false" DataControl="PtrfAMDataControl"
+                  InstanceName="data.PtrfAMDataControl.dataProvider"/>
+    <tree IterBinding="PolicyNoVoLOV1Iterator" id="PolicyNoVoLOV1">
+      <nodeDefinition DefName="pqt.dss.ptrf.model.lov.PolicyNoVoLOV" Name="PolicyNoVoLOV10">
+        <AttrNames>
+          <Item Value="VPolicyNo"/>
+          <Item Value="DCommencement"/>
+          <Item Value="VName"/>
+          <Item Value="NContribution"/>
+          <Item Value="VPymtDesc"/>
+          <Item Value="VCntrStatCode"/>
+          <Item Value="VStatusDesc"/>
+          <Item Value="LastPaymentDate"/>
+          <Item Value="SelectFlag" Binds="SelectFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="PolicyNoVoLOV1Iterator" id="SelectFlag" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="SelectFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <methodAction id="PupolatePolicyNo" RequiresUpdateModel="true" Action="invokeMethod" MethodName="PupolatePolicyNo"
+                  IsViewObjectMethod="false" DataControl="PtrfAMDataControl"
+                  InstanceName="data.PtrfAMDataControl.dataProvider"/>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="calLineDtlRow">
+      <AttrNames>
+        <Item Value="calLineDtlRow"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferLinesView1Iterator" id="TrLineIdPk">
+      <AttrNames>
+        <Item Value="TrLineIdPk"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

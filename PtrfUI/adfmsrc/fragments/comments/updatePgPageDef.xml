@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="updatePgPageDef"
+                Package="fragments.comments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CommentsHeaderVO1" RangeSize="25" DataControl="PtrfAMDataControl" id="CommentsHeaderVO1Iterator"/>
+    <iterator Binds="DssPtCcCommentsView1" RangeSize="25" DataControl="PtrfAMDataControl"
+              id="DssPtCcCommentsView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="VAgentCodeTo">
+      <AttrNames>
+        <Item Value="VAgentCodeTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="AgentNameTo">
+      <AttrNames>
+        <Item Value="AgentNameTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="VBranchCodeTo">
+      <AttrNames>
+        <Item Value="VBranchCodeTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="VBranchNameTo">
+      <AttrNames>
+        <Item Value="VBranchNameTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="VAgentCodeFr">
+      <AttrNames>
+        <Item Value="VAgentCodeFr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="AgentNameFr">
+      <AttrNames>
+        <Item Value="AgentNameFr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="VBranchCodeFr">
+      <AttrNames>
+        <Item Value="VBranchCodeFr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="VBranchNameFr">
+      <AttrNames>
+        <Item Value="VBranchNameFr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="PolNo">
+      <AttrNames>
+        <Item Value="PolNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="CnicNo">
+      <AttrNames>
+        <Item Value="CnicNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="DBirthDate">
+      <AttrNames>
+        <Item Value="DBirthDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="Flag">
+      <AttrNames>
+        <Item Value="Flag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="DCommencement">
+      <AttrNames>
+        <Item Value="DCommencement"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="DPremDueDate">
+      <AttrNames>
+        <Item Value="DPremDueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="VPymtDesc">
+      <AttrNames>
+        <Item Value="VPymtDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="StartDate">
+      <AttrNames>
+        <Item Value="StartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="EndDate">
+      <AttrNames>
+        <Item Value="EndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CommentsHeaderVO1Iterator" id="VContactNumber">
+      <AttrNames>
+        <Item Value="VContactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="DssPtCcCommentsView1Iterator" id="DssPtCcCommentsView1">
+      <nodeDefinition DefName="pqt.dss.ptrf.model.vo.comments.DssPtCcCommentsView" Name="DssPtCcCommentsView10">
+        <AttrNames>
+          <Item Value="EnterDate"/>
+          <Item Value="StatusIdFk"/>
+          <Item Value="CallResponse"/>
+          <Item Value="CallAttempt"/>
+          <Item Value="Remarks"/>
+          <Item Value="Remarks1"/>
+          <Item Value="Remarks2"/>
+          <Item Value="RemarksFlag"/>
+          <Item Value="Remarks1Flag"/>
+          <Item Value="Remarks2Flag"/>
+          <Item Value="DisableRemarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DssPtCcCommentsView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <methodAction id="Apply" RequiresUpdateModel="true" Action="invokeMethod" MethodName="Apply"
+                  IsViewObjectMethod="false" DataControl="PtrfAMDataControl"
+                  InstanceName="data.PtrfAMDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

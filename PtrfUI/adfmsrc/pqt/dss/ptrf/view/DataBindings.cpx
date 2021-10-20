@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.0.31" id="DataBindings"
+             SeparateXMLFiles="false" Package="pqt.dss.ptrf.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/fragments/ptrf/ptrfQuery1.jsff" usageId="pqt_dss_ptrf_view_ptrfQueryPageDef"/>
+    <page path="/Page/PtrfPage.jsf" usageId="pqt_dss_ptrf_view_PtrfPagePageDef"/>
+    <page path="/fragments/ptrf/ptrfCreateUpdate.jsff" usageId="pqt_dss_ptrf_view_ptrfCreateUpdatePageDef"/>
+    <page path="/fragments/ptrf/ptrfDetail.jsff" usageId="pqt_dss_ptrf_view_ptrfDetailPageDef"/>
+    <page path="/fragments/ptrf/ptrfNotification.jsff" usageId="pqt_dss_ptrf_view_ptrfNotificationPageDef"/>
+    <page path="/Page/PtrfNotification.jsf" usageId="pqt_dss_ptrf_view_PtrfNotificationPageDef"/>
+    <page path="/fragments/ptrf/ptrfQuery.jsff" usageId="pqt_dss_ptrf_view_ptrfQueryPageDef1"/>
+    <page path="/WEB-INF/flows/cc/pt-comments-task-flow-definition.xml#pt-comments-task-flow-definition@Rollback"
+          usageId="pqt_dss_ptrf_view_pt_comments_task_flow_definition_pt_comments_task_flow_definition_RollbackPageDef"/>
+    <page path="/fragments/comments/queryPg.jsff" usageId="pqt_dss_ptrf_view_queryPgPageDef"/>
+    <page path="/fragments/comments/updatePg.jsff" usageId="pqt_dss_ptrf_view_updatePgPageDef"/>
+    <page path="/Page/cc.jsf" usageId="pqt_dss_ptrf_view_ccPageDef"/>
+    <page path="/WEB-INF/flows/ptrf-task-flow-definition.xml#ptrf-task-flow-definition@CreateInsert"
+          usageId="pqt_dss_ptrf_view_ptrf_task_flow_definition_ptrf_task_flow_definition_CreateInsertPageDef"/>
+    <page path="/WEB-INF/flows/ptrf-task-flow-definition.xml#ptrf-task-flow-definition@ptrfSearchUser"
+          usageId="pqt_dss_ptrf_view_ptrf_task_flow_definition_ptrf_task_flow_definition_ptrfSearchUserPageDef"/>
+    <page path="/WEB-INF/flows/ptrf-task-flow-definition.xml#ptrf-task-flow-definition@Rollback"
+          usageId="pqt_dss_ptrf_view_ptrf_task_flow_definition_ptrf_task_flow_definition_RollbackPageDef"/>
+    <page path="/WEB-INF/flows/ptrf-task-flow-definition.xml#ptrf-task-flow-definition@Delete"
+          usageId="pqt_dss_ptrf_view_ptrf_task_flow_definition_ptrf_task_flow_definition_DeletePageDef"/>
+    <page path="/WEB-INF/flows/ptrf-task-flow-definition.xml#ptrf-task-flow-definition@DeleteCommit"
+          usageId="pqt_dss_ptrf_view_ptrf_task_flow_definition_ptrf_task_flow_definition_DeleteCommitPageDef"/>
+    <page path="/fragments/ptrf/ptrfCreatePolicy.jsff" usageId="pqt_dss_ptrf_view_ptrfCreatePolicyPageDef"/>
+    <page path="/WEB-INF/flows/ptrf-task-flow-definition.xml#ptrf-task-flow-definition@Rollback1"
+          usageId="pqt_dss_ptrf_view_ptrf_task_flow_definition_ptrf_task_flow_definition_Rollback1PageDef"/>
+    <page path="/WEB-INF/flows/dss-notification-task-flow-definition.xml#dss-notification-task-flow-definition@setNVC_wfDocumentId"
+          usageId="pqt_dss_ptrf_view_dss_notification_task_flow_definition_dss_notification_task_flow_definition_setNVC_wfDocumentIdPageDef"/>
+    <page path="/fragments/psr/psrQuery.jsff" usageId="pqt_dss_ptrf_view_psrQueryPageDef"/>
+    <page path="/fragments/psr/psrCreateUpdate.jsff" usageId="pqt_dss_ptrf_view_psrCreateUpdatePageDef"/>
+    <page path="/WEB-INF/flows/psr/psr-comment-task-flow-definition.xml#psr-comment-task-flow-definition@Rollback"
+          usageId="pqt_dss_ptrf_view_psr_comment_task_flow_definition_psr_comment_task_flow_definition_RollbackPageDef"/>
+    <page path="/WEB-INF/flows/psr/psr-comment-task-flow-definition.xml#psr-comment-task-flow-definition@setSessionValue"
+          usageId="pqt_dss_ptrf_view_psr_comment_task_flow_definition_psr_comment_task_flow_definition_setSessionValuePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="pqt_dss_ptrf_view_ptrfQueryPageDef" path="fragments.ptrf.ptrfQueryPageDef"/>
+    <page id="pqt_dss_ptrf_view_PtrfPagePageDef" path="Page.PtrfPagePageDef"/>
+    <page id="pqt_dss_ptrf_view_ptrfCreateUpdatePageDef" path="fragments.ptrf.ptrfCreateUpdatePageDef"/>
+    <page id="pqt_dss_ptrf_view_ptrfDetailPageDef" path="fragments.ptrf.ptrfDetailPageDef"/>
+    <page id="pqt_dss_ptrf_view_ptrfNotificationPageDef" path="fragments.ptrf.ptrfNotificationPageDef"/>
+    <page id="pqt_dss_ptrf_view_PtrfNotificationPageDef" path="Page.PtrfNotificationPageDef"/>
+    <page id="pqt_dss_ptrf_view_ptrfQueryPageDef1" path="fragments.ptrf.ptrfQueryPageDef1"/>
+    <page id="pqt_dss_ptrf_view_pt_comments_task_flow_definition_pt_comments_task_flow_definition_RollbackPageDef"
+          path="flows.cc.pt_comments_task_flow_definition_pt_comments_task_flow_definition_RollbackPageDef"/>
+    <page id="pqt_dss_ptrf_view_queryPgPageDef" path="fragments.comments.queryPgPageDef"/>
+    <page id="pqt_dss_ptrf_view_updatePgPageDef" path="fragments.comments.updatePgPageDef"/>
+    <page id="pqt_dss_ptrf_view_ccPageDef" path="Page.ccPageDef"/>
+    <page id="pqt_dss_ptrf_view_ptrf_task_flow_definition_ptrf_task_flow_definition_CreateInsertPageDef"
+          path="flows.ptrf_task_flow_definition_ptrf_task_flow_definition_CreateInsertPageDef"/>
+    <page id="pqt_dss_ptrf_view_ptrf_task_flow_definition_ptrf_task_flow_definition_ptrfSearchUserPageDef"
+          path="flows.ptrf_task_flow_definition_ptrf_task_flow_definition_ptrfSearchUserPageDef"/>
+    <page id="pqt_dss_ptrf_view_ptrf_task_flow_definition_ptrf_task_flow_definition_RollbackPageDef"
+          path="flows.ptrf_task_flow_definition_ptrf_task_flow_definition_RollbackPageDef"/>
+    <page id="pqt_dss_ptrf_view_ptrf_task_flow_definition_ptrf_task_flow_definition_DeletePageDef"
+          path="flows.ptrf_task_flow_definition_ptrf_task_flow_definition_DeletePageDef"/>
+    <page id="pqt_dss_ptrf_view_ptrf_task_flow_definition_ptrf_task_flow_definition_DeleteCommitPageDef"
+          path="flows.ptrf_task_flow_definition_ptrf_task_flow_definition_DeleteCommitPageDef"/>
+    <page id="pqt_dss_ptrf_view_ptrfCreatePolicyPageDef" path="fragments.ptrf.ptrfCreatePolicyPageDef"/>
+    <page id="pqt_dss_ptrf_view_ptrf_task_flow_definition_ptrf_task_flow_definition_Rollback1PageDef"
+          path="flows.ptrf_task_flow_definition_ptrf_task_flow_definition_Rollback1PageDef"/>
+    <page id="pqt_dss_ptrf_view_dss_notification_task_flow_definition_dss_notification_task_flow_definition_setNVC_wfDocumentIdPageDef"
+          path="flows.dss_notification_task_flow_definition_dss_notification_task_flow_definition_setNVC_wfDocumentIdPageDef"/>
+    <page id="pqt_dss_ptrf_view_psrQueryPageDef" path="fragments.psr.psrQueryPageDef"/>
+    <page id="pqt_dss_ptrf_view_psrCreateUpdatePageDef" path="fragments.psr.psrCreateUpdatePageDef"/>
+    <page id="pqt_dss_ptrf_view_psr_comment_task_flow_definition_psr_comment_task_flow_definition_RollbackPageDef"
+          path="flows.psr.psr_comment_task_flow_definition_psr_comment_task_flow_definition_RollbackPageDef"/>
+    <page id="pqt_dss_ptrf_view_psr_comment_task_flow_definition_psr_comment_task_flow_definition_setSessionValuePageDef"
+          path="flows.psr.psr_comment_task_flow_definition_psr_comment_task_flow_definition_setSessionValuePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="PtrfAMDataControl" Package="pqt.dss.ptrf.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

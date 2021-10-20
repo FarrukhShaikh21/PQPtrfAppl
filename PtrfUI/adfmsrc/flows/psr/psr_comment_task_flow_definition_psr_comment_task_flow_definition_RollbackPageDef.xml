@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.3.15"
+                id="psr_comment_task_flow_definition_psr_comment_task_flow_definition_RollbackPageDef"
+                Package="flows.psr" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="PtrfAMDataControl"/>
+  </bindings>
+</pageDefinition>

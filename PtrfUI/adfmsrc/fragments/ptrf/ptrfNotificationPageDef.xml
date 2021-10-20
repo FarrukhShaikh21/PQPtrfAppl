@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="ptrfNotificationPageDef"
+                Package="fragments.ptrf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DssPlanTransferHeaderView1" RangeSize="25" DataControl="PtrfAMDataControl"
+              id="DssPlanTransferHeaderView1Iterator"/>
+    <iterator Binds="DssPlanTransferLinesView1" RangeSize="25" DataControl="PtrfAMDataControl"
+              id="DssPlanTransferLinesView1Iterator"/>
+    <iterator Binds="DssPlanTransferLineDetailsView2" RangeSize="25" DataControl="PtrfAMDataControl"
+              id="DssPlanTransferLineDetailsView2Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="Fagentname">
+      <AttrNames>
+        <Item Value="Fagentname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="Fdesignation">
+      <AttrNames>
+        <Item Value="Fdesignation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="FromPersisSec">
+      <AttrNames>
+        <Item Value="FromPersisSec"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="FromPersisThrd">
+      <AttrNames>
+        <Item Value="FromPersisThrd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="PtrfDocNo">
+      <AttrNames>
+        <Item Value="PtrfDocNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DssPlanTransferHeaderView1Iterator" StaticList="false" Uses="LOV_TransactionType"
+          id="TransactionType" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="FromAgentPportfolio">
+      <AttrNames>
+        <Item Value="FromAgentPportfolio"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="WorkflowStatus">
+      <AttrNames>
+        <Item Value="WorkflowStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="FromQuaterlyBusPol">
+      <AttrNames>
+        <Item Value="FromQuaterlyBusPol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="FromQuaterlyBus">
+      <AttrNames>
+        <Item Value="FromQuaterlyBus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="FromHalfYearlyBusPol">
+      <AttrNames>
+        <Item Value="FromHalfYearlyBusPol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="FromHalfYearlyBus">
+      <AttrNames>
+        <Item Value="FromHalfYearlyBus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="FromYearlyBusPol">
+      <AttrNames>
+        <Item Value="FromYearlyBusPol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="FromYearlyBus">
+      <AttrNames>
+        <Item Value="FromYearlyBus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="EnterDate">
+      <AttrNames>
+        <Item Value="EnterDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DssPlanTransferHeaderView1Iterator" StaticList="false" Uses="LOV_CompltetePortfolio"
+          id="CompltetePortfolio" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="DssPlanTransferLinesView1Iterator" id="DssPlanTransferLinesView1">
+      <nodeDefinition DefName="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView" Name="DssPlanTransferLinesView10">
+        <AttrNames>
+          <Item Value="calLineDtlRow"/>
+          <Item Value="Tagentcode"/>
+          <Item Value="Tagentname"/>
+          <Item Value="Tdesignation"/>
+          <Item Value="Tbranchname"/>
+          <Item Value="ToPersisSec"/>
+          <Item Value="ToPersisThrd"/>
+          <Item Value="ToQuaterlyBusPol"/>
+          <Item Value="ToQuaterlyBus"/>
+          <Item Value="ToHalfYearlyBusPol"/>
+          <Item Value="ToHalfYearlyBus"/>
+          <Item Value="ToYearlyBusPol"/>
+          <Item Value="ToYearlyBus"/>
+          <Item Value="ToAgentPortfolio"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DssPlanTransferLineDetailsView2Iterator" id="DssPlanTransferLineDetailsView2">
+      <nodeDefinition DefName="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView"
+                      Name="DssPlanTransferLineDetailsView20">
+        <AttrNames>
+          <Item Value="PolicyNo"/>
+          <Item Value="ParticipantName"/>
+          <Item Value="CommencementDate"/>
+          <Item Value="RegularContribtion"/>
+          <Item Value="PlanMode"/>
+          <Item Value="DueDateLastPayment"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="Fagentcode">
+      <AttrNames>
+        <Item Value="Fagentcode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPlanTransferHeaderView1Iterator" id="Fbranchname">
+      <AttrNames>
+        <Item Value="Fbranchname"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

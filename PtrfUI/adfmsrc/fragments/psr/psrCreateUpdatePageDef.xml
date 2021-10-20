@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.3.15" id="psrCreateUpdatePageDef"
+                Package="fragments.psr">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DssPtPsrCommentsHeaderQVO1" RangeSize="25" DataControl="PtrfAMDataControl"
+              id="DssPtPsrCommentsHeaderQVO1Iterator"/>
+    <iterator Binds="DssPtPsrCommentsView1" RangeSize="25" DataControl="PtrfAMDataControl"
+              id="DssPtPsrCommentsView1Iterator"/>
+    <iterator Binds="DssPtPsrCcCommentsVO1" RangeSize="25" DataControl="PtrfAMDataControl"
+              id="DssPtPsrCcCommentsVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="PolNo">
+      <AttrNames>
+        <Item Value="PolNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="FromAgentCode">
+      <AttrNames>
+        <Item Value="FromAgentCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="FromAgentName">
+      <AttrNames>
+        <Item Value="FromAgentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="ManagerName">
+      <AttrNames>
+        <Item Value="ManagerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="ToAgentCode">
+      <AttrNames>
+        <Item Value="ToAgentCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="ToAgentName">
+      <AttrNames>
+        <Item Value="ToAgentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="BranchCode">
+      <AttrNames>
+        <Item Value="BranchCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="BranchName">
+      <AttrNames>
+        <Item Value="BranchName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="AgressiveFund">
+      <AttrNames>
+        <Item Value="AgressiveFund"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="AgressiveFundPercentage">
+      <AttrNames>
+        <Item Value="AgressiveFundPercentage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="BalanceFund">
+      <AttrNames>
+        <Item Value="BalanceFund"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="BalanceFundPercentage">
+      <AttrNames>
+        <Item Value="BalanceFundPercentage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="CdAmount">
+      <AttrNames>
+        <Item Value="CdAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="CommencementDate">
+      <AttrNames>
+        <Item Value="CommencementDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="Conindex">
+      <AttrNames>
+        <Item Value="Conindex"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="ConservativeFund">
+      <AttrNames>
+        <Item Value="ConservativeFund"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="ContributionMode">
+      <AttrNames>
+        <Item Value="ContributionMode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="ConversativeFundPercentage">
+      <AttrNames>
+        <Item Value="ConversativeFundPercentage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="DateOfTransfer">
+      <AttrNames>
+        <Item Value="DateOfTransfer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="DueAmount">
+      <AttrNames>
+        <Item Value="DueAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="FaceValue">
+      <AttrNames>
+        <Item Value="FaceValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="Flag">
+      <AttrNames>
+        <Item Value="Flag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="IssuanceDate">
+      <AttrNames>
+        <Item Value="IssuanceDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="Location">
+      <AttrNames>
+        <Item Value="Location"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="MirrorAmount">
+      <AttrNames>
+        <Item Value="MirrorAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="NextDueDate">
+      <AttrNames>
+        <Item Value="NextDueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="ParticipantContactNumber">
+      <AttrNames>
+        <Item Value="ParticipantContactNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="ParticipantName">
+      <AttrNames>
+        <Item Value="ParticipantName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="PendingDays">
+      <AttrNames>
+        <Item Value="PendingDays"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="PlanName">
+      <AttrNames>
+        <Item Value="PlanName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="PrimaryCode">
+      <AttrNames>
+        <Item Value="PrimaryCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="PrimaryName">
+      <AttrNames>
+        <Item Value="PrimaryName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="RegionCode">
+      <AttrNames>
+        <Item Value="RegionCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="RegionName">
+      <AttrNames>
+        <Item Value="RegionName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="RiderName">
+      <AttrNames>
+        <Item Value="RiderName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="RiderSaumAssured">
+      <AttrNames>
+        <Item Value="RiderSaumAssured"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="StartDate">
+      <AttrNames>
+        <Item Value="StartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="TerminationDate">
+      <AttrNames>
+        <Item Value="TerminationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="DssPtPsrCommentsView1Iterator" id="DssPtPsrCommentsView1">
+      <nodeDefinition DefName="pqt.dss.ptrf.model.vo.psr.DssPtPsrCommentsView" Name="DssPtPsrCommentsView10">
+        <AttrNames>
+          <Item Value="PsrRecievedDate"/>
+          <Item Value="PsrRecievedStatus" Binds="PsrRecievedStatus"/>
+          <Item Value="PsrBoRemarks"/>
+          <Item Value="DisbaleColumn"/>
+          <Item Value="PsrAlterationStatus" Binds="PsrAlterationStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DssPtPsrCommentsView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <methodAction id="Apply" RequiresUpdateModel="true" Action="invokeMethod" MethodName="Apply"
+                  IsViewObjectMethod="false" DataControl="PtrfAMDataControl"
+                  InstanceName="data.PtrfAMDataControl.dataProvider"/>
+    <button IterBinding="DssPtPsrCommentsView1Iterator" id="PsrRecievedStatus" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="PsrRecievedStatus"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="DssPtPsrCommentsView1Iterator" id="PsrAlterationStatus" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="PsrAlterationStatus"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <tree IterBinding="DssPtPsrCcCommentsVO1Iterator" id="DssPtPsrCcCommentsVO1">
+      <nodeDefinition DefName="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVO" Name="DssPtPsrCcCommentsVO10">
+        <AttrNames>
+          <Item Value="EnterDate"/>
+          <Item Value="StatusIdFk"/>
+          <Item Value="CallResponse"/>
+          <Item Value="CallAttempt"/>
+          <Item Value="Remarks"/>
+          <Item Value="Remarks1"/>
+          <Item Value="Remarks2"/>
+          <Item Value="RemarksFlag"/>
+          <Item Value="Remarks1Flag"/>
+          <Item Value="Remarks2Flag"/>
+          <Item Value="DisableRemarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DssPtPsrCcCommentsVO1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="Contribution">
+      <AttrNames>
+        <Item Value="Contribution"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssPtPsrCommentsHeaderQVO1Iterator" id="FromAgentStatus">
+      <AttrNames>
+        <Item Value="FromAgentStatus"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

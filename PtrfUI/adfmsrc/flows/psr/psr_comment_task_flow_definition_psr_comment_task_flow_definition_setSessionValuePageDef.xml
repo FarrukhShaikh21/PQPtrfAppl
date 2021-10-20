@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31"
+                id="psr_comment_task_flow_definition_psr_comment_task_flow_definition_setSessionValuePageDef"
+                Package="flows.psr" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="setSessionValue" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setSessionValue"
+                  IsViewObjectMethod="false" DataControl="PtrfAMDataControl"
+                  InstanceName="data.PtrfAMDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

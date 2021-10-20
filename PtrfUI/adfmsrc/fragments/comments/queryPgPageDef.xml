@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="queryPgPageDef"
+                Package="fragments.comments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CommentsHeaderVO1" RangeSize="10" DataControl="PtrfAMDataControl" id="CommentsHeaderVO1Iterator"/>
+    <searchRegion Criteria="CommentsHeaderVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CommentsHeaderVO1Iterator" id="CommentsHeaderVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CommentsHeaderVO1Iterator" id="CommentsHeaderVO1">
+      <nodeDefinition DefName="pqt.dss.ptrf.model.vo.comments.CommentsHeaderVO" Name="CommentsHeaderVO10">
+        <AttrNames>
+          <Item Value="PolNo"/>
+          <Item Value="AgentNameTo"/>
+          <Item Value="AgentNameFr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

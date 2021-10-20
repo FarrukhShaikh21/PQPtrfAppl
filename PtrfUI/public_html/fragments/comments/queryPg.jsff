@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:panelGroupLayout layout="vertical" id="pgl1">
+        <af:panelHeader text="Query page" id="ph1">
+          <af:query id="qryId1" headerText="Search" disclosed="true"
+                    value="#{bindings.CommentsHeaderVOCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.CommentsHeaderVOCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.CommentsHeaderVOCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.CommentsHeaderVOCriteriaQuery.processQueryOperation}"
+                    resultComponentId="::resId1" saveQueryMode="hidden" modeChangeVisible="false"/>
+        </af:panelHeader>
+        <af:table value="#{bindings.CommentsHeaderVO1.collectionModel}" var="row"
+                  rows="#{bindings.CommentsHeaderVO1.rangeSize}"
+                  emptyText="#{bindings.CommentsHeaderVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.CommentsHeaderVO1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.CommentsHeaderVO1.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.CommentsHeaderVO1.rangeSize}" id="resId1" scrollPolicy="page">
+          <af:column headerText="#{bindings.CommentsHeaderVO1.hints.PolNo.label}" id="resId1c1" width="180"
+                     align="center">
+            <af:outputText value="#{row.PolNo}" shortDesc="#{bindings.CommentsHeaderVO1.hints.PolNo.tooltip}" id="ot1"/>
+          </af:column>
+          <af:column headerText="#{bindings.CommentsHeaderVO1.hints.AgentNameTo.label}" id="resId1c2" width="180"
+                     align="center">
+            <af:inputText value="#{row.bindings.AgentNameTo.inputValue}"
+                          label="#{bindings.CommentsHeaderVO1.hints.AgentNameTo.label}"
+                          required="#{bindings.CommentsHeaderVO1.hints.AgentNameTo.mandatory}"
+                          columns="#{bindings.CommentsHeaderVO1.hints.AgentNameTo.displayWidth}"
+                          maximumLength="#{bindings.CommentsHeaderVO1.hints.AgentNameTo.precision}"
+                          shortDesc="#{bindings.CommentsHeaderVO1.hints.AgentNameTo.tooltip}" id="it1">
+              <f:validator binding="#{row.bindings.AgentNameTo.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CommentsHeaderVO1.hints.AgentNameFr.label}" id="resId1c3" align="center"
+                     width="180">
+            <af:inputText value="#{row.bindings.AgentNameFr.inputValue}"
+                          label="#{bindings.CommentsHeaderVO1.hints.AgentNameFr.label}"
+                          required="#{bindings.CommentsHeaderVO1.hints.AgentNameFr.mandatory}"
+                          columns="#{bindings.CommentsHeaderVO1.hints.AgentNameFr.displayWidth}"
+                          maximumLength="#{bindings.CommentsHeaderVO1.hints.AgentNameFr.precision}"
+                          shortDesc="#{bindings.CommentsHeaderVO1.hints.AgentNameFr.tooltip}" id="it2">
+              <f:validator binding="#{row.bindings.AgentNameFr.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column id="c1" align="center" headerText="Update">
+            <af:link id="l1" icon="/images/updateicon_enabled.gif" action="goUpdate"/>
+          </af:column>
+        </af:table>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

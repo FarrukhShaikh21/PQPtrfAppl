@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1" binding="#{backingBeanScope.ptrfCreatePolicyBean.psl1}">
+    <f:facet name="center">
+      <af:panelHeader text="Create Policy Page" id="ph1" binding="#{backingBeanScope.ptrfCreatePolicyBean.ph1}">
+        <f:facet name="toolbar">
+          <af:toolbox id="t1" binding="#{backingBeanScope.ptrfCreatePolicyBean.t1}"/>
+          <af:button text="Back" id="b1" action="backCreate" immediate="true"
+                     binding="#{backingBeanScope.ptrfCreatePolicyBean.b1}"/>
+          <af:button id="b3" binding="#{backingBeanScope.ptrfCreatePolicyBean.b3}" text="Save Record"
+                     action="#{backingBeanScope.ptrfCreatePolicyBean.Submit_action}"/>
+        </f:facet>
+        <af:panelGroupLayout id="pgl1" layout="vertical" binding="#{backingBeanScope.ptrfCreatePolicyBean.pgl1}">
+          <af:panelHeader text="Plan Transfering To" id="ph2" binding="#{backingBeanScope.ptrfCreatePolicyBean.ph2}">
+            <f:facet name="toolbar"/>
+            <af:panelFormLayout id="pfl1" rows="7" binding="#{backingBeanScope.ptrfCreatePolicyBean.pfl1}"
+                                labelWidth="150">
+              <af:inputListOfValues id="tagentcodeId" popupTitle="Search and Select: #{bindings.Tagentcode.hints.label}"
+                                    value="#{bindings.Tagentcode.inputValue}" label="#{bindings.Tagentcode.hints.label}"
+                                    model="#{bindings.Tagentcode.listOfValuesModel}"
+                                    required="#{bindings.Tagentcode.hints.mandatory}"
+                                    columns="#{bindings.Tagentcode.hints.displayWidth}"
+                                    shortDesc="#{bindings.Tagentcode.hints.tooltip}" disabled="true"
+                                    binding="#{backingBeanScope.ptrfCreatePolicyBean.tagentcodeId}">
+                <f:validator binding="#{bindings.Tagentcode.validator}"/>
+              </af:inputListOfValues>
+              <af:inputText value="#{bindings.Tagentname.inputValue}" label="#{bindings.Tagentname.hints.label}"
+                            required="#{bindings.Tagentname.hints.mandatory}"
+                            columns="#{bindings.Tagentname.hints.displayWidth}"
+                            maximumLength="#{bindings.Tagentname.hints.precision}"
+                            shortDesc="#{bindings.Tagentname.hints.tooltip}" partialTriggers="tagentcodeId" id="it1"
+                            disabled="true" binding="#{backingBeanScope.ptrfCreatePolicyBean.it1}">
+                <f:validator binding="#{bindings.Tagentname.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Tdesignation.inputValue}" label="#{bindings.Tdesignation.hints.label}"
+                            required="#{bindings.Tdesignation.hints.mandatory}"
+                            columns="#{bindings.Tdesignation.hints.displayWidth}"
+                            maximumLength="#{bindings.Tdesignation.hints.precision}"
+                            shortDesc="#{bindings.Tdesignation.hints.tooltip}" partialTriggers="tagentcodeId" id="it2"
+                            disabled="true" binding="#{backingBeanScope.ptrfCreatePolicyBean.it2}">
+                <f:validator binding="#{bindings.Tdesignation.validator}"/>
+              </af:inputText>
+              <af:inputListOfValues id="tbranchnameId"
+                                    popupTitle="Search and Select: #{bindings.Tbranchname.hints.label}"
+                                    value="#{bindings.Tbranchname.inputValue}"
+                                    label="#{bindings.Tbranchname.hints.label}"
+                                    model="#{bindings.Tbranchname.listOfValuesModel}"
+                                    required="#{bindings.Tbranchname.hints.mandatory}"
+                                    columns="#{bindings.Tbranchname.hints.displayWidth}"
+                                    shortDesc="#{bindings.Tbranchname.hints.tooltip}" disabled="true"
+                                    binding="#{backingBeanScope.ptrfCreatePolicyBean.tbranchnameId}">
+                <f:validator binding="#{bindings.Tbranchname.validator}"/>
+              </af:inputListOfValues>
+              <af:inputText value="#{bindings.ToAgentPortfolio.inputValue}"
+                            label="#{bindings.ToAgentPortfolio.hints.label}"
+                            required="#{bindings.ToAgentPortfolio.hints.mandatory}"
+                            columns="#{bindings.ToAgentPortfolio.hints.displayWidth}"
+                            maximumLength="#{bindings.ToAgentPortfolio.hints.precision}"
+                            shortDesc="#{bindings.ToAgentPortfolio.hints.tooltip}" partialTriggers="tagentcodeId"
+                            id="it3" disabled="true" binding="#{backingBeanScope.ptrfCreatePolicyBean.it3}">
+                <f:validator binding="#{bindings.ToAgentPortfolio.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ToAgentPortfolio.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ToPersisSec.inputValue}" label="#{bindings.ToPersisSec.hints.label}"
+                            required="#{bindings.ToPersisSec.hints.mandatory}"
+                            columns="#{bindings.ToPersisSec.hints.displayWidth}"
+                            maximumLength="#{bindings.ToPersisSec.hints.precision}"
+                            shortDesc="#{bindings.ToPersisSec.hints.tooltip}" partialTriggers="tagentcodeId" id="it4"
+                            disabled="true" binding="#{backingBeanScope.ptrfCreatePolicyBean.it4}">
+                <f:validator binding="#{bindings.ToPersisSec.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ToPersisSec.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ToPersisThrd.inputValue}" label="#{bindings.ToPersisThrd.hints.label}"
+                            required="#{bindings.ToPersisThrd.hints.mandatory}"
+                            columns="#{bindings.ToPersisThrd.hints.displayWidth}"
+                            maximumLength="#{bindings.ToPersisThrd.hints.precision}"
+                            shortDesc="#{bindings.ToPersisThrd.hints.tooltip}" partialTriggers="tagentcodeId" id="it5"
+                            disabled="true" binding="#{backingBeanScope.ptrfCreatePolicyBean.it5}">
+                <f:validator binding="#{bindings.ToPersisThrd.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ToPersisThrd.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ToQuaterlyBusPol.inputValue}"
+                            label="#{bindings.ToQuaterlyBusPol.hints.label}"
+                            required="#{bindings.ToQuaterlyBusPol.hints.mandatory}"
+                            columns="#{bindings.ToQuaterlyBusPol.hints.displayWidth}"
+                            maximumLength="#{bindings.ToQuaterlyBusPol.hints.precision}"
+                            shortDesc="#{bindings.ToQuaterlyBusPol.hints.tooltip}" partialTriggers="tagentcodeId"
+                            id="it6" disabled="true" binding="#{backingBeanScope.ptrfCreatePolicyBean.it6}">
+                <f:validator binding="#{bindings.ToQuaterlyBusPol.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ToQuaterlyBusPol.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ToQuaterlyBus.inputValue}" label="#{bindings.ToQuaterlyBus.hints.label}"
+                            required="#{bindings.ToQuaterlyBus.hints.mandatory}"
+                            columns="#{bindings.ToQuaterlyBus.hints.displayWidth}"
+                            maximumLength="#{bindings.ToQuaterlyBus.hints.precision}"
+                            shortDesc="#{bindings.ToQuaterlyBus.hints.tooltip}" partialTriggers="tagentcodeId" id="it7"
+                            disabled="true" binding="#{backingBeanScope.ptrfCreatePolicyBean.it7}">
+                <f:validator binding="#{bindings.ToQuaterlyBus.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ToQuaterlyBus.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ToHalfYearlyBusPol.inputValue}"
+                            label="#{bindings.ToHalfYearlyBusPol.hints.label}"
+                            required="#{bindings.ToHalfYearlyBusPol.hints.mandatory}"
+                            columns="#{bindings.ToHalfYearlyBusPol.hints.displayWidth}"
+                            maximumLength="#{bindings.ToHalfYearlyBusPol.hints.precision}"
+                            shortDesc="#{bindings.ToHalfYearlyBusPol.hints.tooltip}" partialTriggers="tagentcodeId"
+                            id="it8" disabled="true" binding="#{backingBeanScope.ptrfCreatePolicyBean.it8}">
+                <f:validator binding="#{bindings.ToHalfYearlyBusPol.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ToHalfYearlyBusPol.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ToHalfYearlyBus.inputValue}"
+                            label="#{bindings.ToHalfYearlyBus.hints.label}"
+                            required="#{bindings.ToHalfYearlyBus.hints.mandatory}"
+                            columns="#{bindings.ToHalfYearlyBus.hints.displayWidth}"
+                            maximumLength="#{bindings.ToHalfYearlyBus.hints.precision}"
+                            shortDesc="#{bindings.ToHalfYearlyBus.hints.tooltip}" partialTriggers="tagentcodeId"
+                            id="it9" disabled="true" binding="#{backingBeanScope.ptrfCreatePolicyBean.it9}">
+                <f:validator binding="#{bindings.ToHalfYearlyBus.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ToHalfYearlyBus.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ToYearlyBusPol.inputValue}" label="#{bindings.ToYearlyBusPol.hints.label}"
+                            required="#{bindings.ToYearlyBusPol.hints.mandatory}"
+                            columns="#{bindings.ToYearlyBusPol.hints.displayWidth}"
+                            maximumLength="#{bindings.ToYearlyBusPol.hints.precision}"
+                            shortDesc="#{bindings.ToYearlyBusPol.hints.tooltip}" partialTriggers="tagentcodeId"
+                            id="it10" disabled="true" binding="#{backingBeanScope.ptrfCreatePolicyBean.it10}">
+                <f:validator binding="#{bindings.ToYearlyBusPol.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ToYearlyBusPol.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ToYearlyBus.inputValue}" label="#{bindings.ToYearlyBus.hints.label}"
+                            required="#{bindings.ToYearlyBus.hints.mandatory}"
+                            columns="#{bindings.ToYearlyBus.hints.displayWidth}"
+                            maximumLength="#{bindings.ToYearlyBus.hints.precision}"
+                            shortDesc="#{bindings.ToYearlyBus.hints.tooltip}" partialTriggers="tagentcodeId" id="it11"
+                            disabled="true" binding="#{backingBeanScope.ptrfCreatePolicyBean.it11}">
+                <f:validator binding="#{bindings.ToYearlyBus.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.ToYearlyBus.format}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.EnterDate.inputValue}" label="#{bindings.EnterDate.hints.label}"
+                            required="#{bindings.EnterDate.hints.mandatory}"
+                            columns="#{bindings.EnterDate.hints.displayWidth}"
+                            shortDesc="#{bindings.EnterDate.hints.tooltip}" id="id1" disabled="true"
+                            binding="#{backingBeanScope.ptrfCreatePolicyBean.id1}">
+                <f:validator binding="#{bindings.EnterDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.EnterDate.format}"/>
+              </af:inputDate>
+              <af:inputText value="#{bindings.TrLineIdPk.inputValue}" label="#{bindings.TrLineIdPk.hints.label}"
+                            required="#{bindings.TrLineIdPk.hints.mandatory}"
+                            columns="#{bindings.TrLineIdPk.hints.displayWidth}"
+                            maximumLength="#{bindings.TrLineIdPk.hints.precision}"
+                            shortDesc="#{bindings.TrLineIdPk.hints.tooltip}" id="it12"
+                            binding="#{backingBeanScope.ptrfCreatePolicyBean.it12}" rendered="false">
+                <f:validator binding="#{bindings.TrLineIdPk.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.TrLineIdPk.format}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:panelHeader>
+          <af:panelHeader text="From Agent Policies" id="ph3" binding="#{backingBeanScope.ptrfCreatePolicyBean.ph3}">
+            <f:facet name="toolbar"/>
+            <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                binding="#{backingBeanScope.ptrfCreatePolicyBean.pc1}" featuresOff="detach viewMenu">
+              <f:facet name="toolbar">
+                <af:toolbar id="t3" binding="#{backingBeanScope.ptrfCreatePolicyBean.t3}">
+                  <af:button text="Add Policies" id="b2" actionListener="#{bindings.CreateInsert.execute}"
+                             binding="#{backingBeanScope.ptrfCreatePolicyBean.b2}" rendered="false"/>
+                  <af:button text="Pop-Up" id="b6" binding="#{backingBeanScope.ptrfCreatePolicyBean.b6}"
+                             action="#{backingBeanScope.ptrfCreatePolicyBean.OpenPolicyLov_action}"/>
+                </af:toolbar>
+              </f:facet>
+              <af:table value="#{bindings.DssPlanTransferLineDetailsView2.collectionModel}" var="row"
+                        rows="#{bindings.DssPlanTransferLineDetailsView2.rangeSize}"
+                        emptyText="#{bindings.DssPlanTransferLineDetailsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.DssPlanTransferLineDetailsView2.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.DssPlanTransferLineDetailsView2.collectionModel.makeCurrent}"
+                        rowSelection="single" fetchSize="#{bindings.DssPlanTransferLineDetailsView2.rangeSize}" id="t2"
+                        partialTriggers="::b2 l1" binding="#{backingBeanScope.ptrfCreatePolicyBean.t2}">
+                <af:column id="c8" headerText="Delete" align="center" width="50">
+                  <af:link id="l1" icon="/images/deleteicon_enabled.gif" actionListener="#{bindings.Delete.execute}"
+                           immediate="true"/>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLineDetailsView2.hints.PolicyNo.label}" id="c1"
+                           width="140">
+                  <af:outputText value="#{row.PolicyNo}"
+                                 shortDesc="#{bindings.DssPlanTransferLineDetailsView2.hints.PolicyNo.tooltip}"
+                                 id="ot6"/>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLineDetailsView2.hints.ParticipantName.label}" id="c2"
+                           width="120">
+                  <af:outputText value="#{row.ParticipantName}"
+                                 shortDesc="#{bindings.DssPlanTransferLineDetailsView2.hints.ParticipantName.tooltip}"
+                                 id="ot10"/>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLineDetailsView2.hints.CommencementDate.label}" id="c3"
+                           width="120">
+                  <af:outputText value="#{row.CommencementDate}"
+                                 shortDesc="#{bindings.DssPlanTransferLineDetailsView2.hints.CommencementDate.tooltip}"
+                                 id="ot13">
+                    <af:convertDateTime pattern="#{bindings.DssPlanTransferLineDetailsView2.hints.CommencementDate.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLineDetailsView2.hints.RegularContribtion.label}"
+                           id="c4" width="120">
+                  <af:outputText value="#{row.RegularContribtion}"
+                                 shortDesc="#{bindings.DssPlanTransferLineDetailsView2.hints.RegularContribtion.tooltip}"
+                                 id="ot9">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DssPlanTransferLineDetailsView2.hints.RegularContribtion.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLineDetailsView2.hints.PlanMode.label}" id="c5">
+                  <af:outputText value="#{row.PlanMode}"
+                                 shortDesc="#{bindings.DssPlanTransferLineDetailsView2.hints.PlanMode.tooltip}"
+                                 id="ot11"/>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLineDetailsView2.hints.DueDateLastPayment.label}"
+                           id="c6">
+                  <af:outputText value="#{row.DueDateLastPayment}"
+                                 shortDesc="#{bindings.DssPlanTransferLineDetailsView2.hints.DueDateLastPayment.tooltip}"
+                                 id="ot12">
+                    <af:convertDateTime pattern="#{bindings.DssPlanTransferLineDetailsView2.hints.DueDateLastPayment.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssPlanTransferLineDetailsView2.hints.Status.label}" id="c7">
+                  <af:outputText value="#{row.Status}"
+                                 shortDesc="#{bindings.DssPlanTransferLineDetailsView2.hints.Status.tooltip}"
+                                 id="ot14"/>
+                </af:column>
+              </af:table>
+              <af:popup autoCancel="disabled" id="p1" binding="#{backingBeanScope.ptrfCreatePolicyBean.p1}">
+                <af:dialog id="d1" binding="#{backingBeanScope.ptrfCreatePolicyBean.d1}" type="none"
+                           closeIconVisible="false">
+                  <f:facet name="buttonBar"/>
+                  <af:panelGroupLayout layout="vertical" id="pgl2"
+                                       binding="#{backingBeanScope.ptrfCreatePolicyBean.pgl2}">
+                    <af:panelHeader text="PolicyNoVoLOV1" id="ph4"
+                                    binding="#{backingBeanScope.ptrfCreatePolicyBean.ph4}">
+                      <af:query id="qryId1" headerText="Search" disclosed="true"
+                                value="#{bindings.PolicyNoVoLOVCriteriaQuery.queryDescriptor}"
+                                model="#{bindings.PolicyNoVoLOVCriteriaQuery.queryModel}"
+                                queryListener="#{bindings.PolicyNoVoLOVCriteriaQuery.processQuery}"
+                                queryOperationListener="#{bindings.PolicyNoVoLOVCriteriaQuery.processQueryOperation}"
+                                resultComponentId="::pc2:resId1"
+                                binding="#{backingBeanScope.ptrfCreatePolicyBean.qryId1}"/>
+                    </af:panelHeader>
+                  </af:panelGroupLayout>
+                  <af:panelCollection id="pc2" binding="#{backingBeanScope.ptrfCreatePolicyBean.pc2}"
+                                      styleClass="AFStretchWidth" featuresOff="detach viewMenu">
+                    <f:facet name="toolbar">
+                      <af:toolbar id="t4" binding="#{backingBeanScope.ptrfCreatePolicyBean.t4}">
+                        <af:button text="Select" id="b4" binding="#{backingBeanScope.ptrfCreatePolicyBean.b4}"
+                                   action="#{backingBeanScope.ptrfCreatePolicyBean.Populatepolicy_action}"/>
+                        <af:button text="Cancel" id="b5" binding="#{backingBeanScope.ptrfCreatePolicyBean.b5}"
+                                   action="#{backingBeanScope.ptrfCreatePolicyBean.closePopup_action}"/>
+                      </af:toolbar>
+                    </f:facet>
+                    <af:table value="#{bindings.PolicyNoVoLOV1.collectionModel}" var="row"
+                              rows="#{bindings.PolicyNoVoLOV1.rangeSize}"
+                              emptyText="#{bindings.PolicyNoVoLOV1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.PolicyNoVoLOV1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.PolicyNoVoLOV1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.PolicyNoVoLOV1.rangeSize}" id="resId1"
+                              binding="#{backingBeanScope.ptrfCreatePolicyBean.resId1}">
+                      <af:column headerText="#{bindings.PolicyNoVoLOV1.hints.SelectFlag.label}" id="c9" align="center">
+                        <af:selectBooleanCheckbox value="#{row.bindings.SelectFlag.inputValue}"
+                                                  label="#{row.bindings.SelectFlag.label}"
+                                                  shortDesc="#{bindings.PolicyNoVoLOV1.hints.SelectFlag.tooltip}"
+                                                  id="sbc1"/>
+                      </af:column>
+                      <af:column headerText="#{bindings.PolicyNoVoLOV1.hints.VPolicyNo.label}" id="resId1c1">
+                        <af:outputText value="#{row.VPolicyNo}"
+                                       shortDesc="#{bindings.PolicyNoVoLOV1.hints.VPolicyNo.tooltip}" id="ot1"/>
+                      </af:column>
+                      <af:column headerText="#{bindings.PolicyNoVoLOV1.hints.DCommencement.label}" id="resId1c2">
+                        <af:outputText value="#{row.DCommencement}"
+                                       shortDesc="#{bindings.PolicyNoVoLOV1.hints.DCommencement.tooltip}" id="ot2">
+                          <af:convertDateTime pattern="#{bindings.PolicyNoVoLOV1.hints.DCommencement.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.PolicyNoVoLOV1.hints.VName.label}" id="resId1c3">
+                        <af:outputText value="#{row.VName}" shortDesc="#{bindings.PolicyNoVoLOV1.hints.VName.tooltip}"
+                                       id="ot3"/>
+                      </af:column>
+                      <af:column headerText="#{bindings.PolicyNoVoLOV1.hints.NContribution.label}" id="resId1c4">
+                        <af:outputText value="#{row.NContribution}"
+                                       shortDesc="#{bindings.PolicyNoVoLOV1.hints.NContribution.tooltip}" id="ot4">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.PolicyNoVoLOV1.hints.NContribution.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.PolicyNoVoLOV1.hints.VPymtDesc.label}" id="resId1c5">
+                        <af:outputText value="#{row.VPymtDesc}"
+                                       shortDesc="#{bindings.PolicyNoVoLOV1.hints.VPymtDesc.tooltip}" id="ot5"/>
+                      </af:column>
+                      <af:column headerText="#{bindings.PolicyNoVoLOV1.hints.VCntrStatCode.label}" id="resId1c6">
+                        <af:outputText value="#{row.VCntrStatCode}"
+                                       shortDesc="#{bindings.PolicyNoVoLOV1.hints.VCntrStatCode.tooltip}" id="ot7"/>
+                      </af:column>
+                      <af:column headerText="#{bindings.PolicyNoVoLOV1.hints.VStatusDesc.label}" id="resId1c7">
+                        <af:outputText value="#{row.VStatusDesc}"
+                                       shortDesc="#{bindings.PolicyNoVoLOV1.hints.VStatusDesc.tooltip}" id="ot8"/>
+                      </af:column>
+                      <af:column headerText="#{bindings.PolicyNoVoLOV1.hints.LastPaymentDate.label}" id="resId1c8">
+                        <af:outputText value="#{row.LastPaymentDate}"
+                                       shortDesc="#{bindings.PolicyNoVoLOV1.hints.LastPaymentDate.tooltip}" id="ot15">
+                          <af:convertDateTime pattern="#{bindings.PolicyNoVoLOV1.hints.LastPaymentDate.format}"/>
+                        </af:outputText>
+                      </af:column>
+                    </af:table>
+                  </af:panelCollection>
+                </af:dialog>
+              </af:popup>
+            </af:panelCollection>
+          </af:panelHeader>
+        </af:panelGroupLayout>
+      </af:panelHeader>
+    </f:facet>
+  </af:panelStretchLayout>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:ptrfCreatePolicyBean-->
+</ui:composition>

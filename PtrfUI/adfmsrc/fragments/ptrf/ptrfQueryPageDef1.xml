@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="ptrfQueryPageDef1"
+                Package="fragments.ptrf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DssPlanTransferHeaderView1" RangeSize="25" DataControl="PtrfAMDataControl"
+              id="DssPlanTransferHeaderView1Iterator"/>
+    <searchRegion Criteria="DssPlanTransferHeaderViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DssPlanTransferHeaderView1Iterator" id="DssPlanTransferHeaderViewCriteriaQuery"/>
+    <searchRegion Criteria="DssPlanTransferHeaderViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DssPlanTransferHeaderView1Iterator" id="DssPlanTransferHeaderViewCriteriaQuery1"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DssPlanTransferHeaderView1Iterator" id="DssPlanTransferHeaderView1">
+      <nodeDefinition DefName="pqt.dss.ptrf.model.vo.DssPlanTransferHeaderView" Name="DssPlanTransferHeaderView10">
+        <AttrNames>
+          <Item Value="TrHeaderIdPk"/>
+          <Item Value="PtrfDocNo"/>
+          <Item Value="TransactionType"/>
+          <Item Value="Fagentcode"/>
+          <Item Value="Fagentname"/>
+          <Item Value="Fdesignation"/>
+          <Item Value="Fbranchname"/>
+          <Item Value="WorkflowStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
