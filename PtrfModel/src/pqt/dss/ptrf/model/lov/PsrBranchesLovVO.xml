@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PsrBranchesLovVO"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="pqt.dss.ptrf.model.lov.PsrBranchesLovVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="VC_BR_CODE"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="VC_BR_NAME"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select A.V_BRANCH_CODE, A.V_BRANCH_NAME 
+  from VU_DSS_ST_BRANCH A 
+ where 1 = 1 
+   AND A.V_AGENCY_REGION NOT IN ('RG24', 
+                                 'RG25', 
+                                 'RG26', 
+                                 'RG27', 
+                                 'RG28', 
+                                 'RG29', 
+                                 'RG30', 
+                                 'HO', 
+                                 'RG18', 
+                                 'RG19', 
+                                 'RG21')]]></SQLQuery>
+  <ViewAttribute
+    Name="VBranchCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="V_BRANCH_CODE"
+    Expression="V_BRANCH_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.lov.PsrBranchesLovVO.VBranchCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VBranchName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="V_BRANCH_NAME"
+    Expression="V_BRANCH_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.lov.PsrBranchesLovVO.VBranchName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="PsrBranchesLovVOCriteria"
+    ViewObjectName="pqt.dss.ptrf.model.lov.PsrBranchesLovVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="PsrBranchesLovVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PsrBranchesLovVOCriteria_PsrBranchesLovVOCriteria_row_0_VBranchCode"
+        ViewAttribute="VBranchCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":VC_BR_CODE"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PsrBranchesLovVOCriteria_PsrBranchesLovVOCriteria_row_0_VBranchName"
+        ViewAttribute="VBranchName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":VC_BR_NAME"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="VBranchCode"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.ptrf.model.PtrfModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

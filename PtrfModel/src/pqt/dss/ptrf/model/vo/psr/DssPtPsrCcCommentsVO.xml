@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssPtPsrCcCommentsVO"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="StatusPopup1"
+    ViewObjectName="pqt.dss.ptrf.model.popUp.StatusPopup"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CallResponsePopup1"
+    ViewObjectName="pqt.dss.ptrf.model.popUp.CallResponsePopup"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="CallResponsePopupCriteria"
+      FullName="pqt.dss.ptrf.model.popUp.CallResponsePopup.CallResponsePopupCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="P_STATUS_ID_FK">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[StatusIdFk]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="CallAttmptPopup1"
+    ViewObjectName="pqt.dss.ptrf.model.popUp.CallAttmptPopup"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="CallAttmptPopupCriteria"
+      FullName="pqt.dss.ptrf.model.popUp.CallAttmptPopup.CallAttmptPopupCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="P_STATUS_ID_FK">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[StatusIdFk]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_StatusIdFk"
+    ListVOName="StatusPopup1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StatusIdFk"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StatusIdPk"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StatusDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CallResponse"
+    ListVOName="CallResponsePopup1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CallResponse"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CallResponse"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CallResponse"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CallAttempt"
+    ListVOName="CallAttmptPopup1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CallAttempt"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CallAttemptDecs"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CallAttemptDecs"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT DssPtPsrCcCommentsVO.POL_TRANSFER_ID_PK,     
+       DssPtPsrCcCommentsVO.CALL_ATTEMPT,     
+       DssPtPsrCcCommentsVO.CALL_RESPONSE,     
+       DssPtPsrCcCommentsVO.COMMENTS_TYPE,     
+       DssPtPsrCcCommentsVO.ENTER_DATE,     
+       DssPtPsrCcCommentsVO.LAST_UPDATED_BY,     
+       DssPtPsrCcCommentsVO.LAST_UPDATED_DATE,     
+       DssPtPsrCcCommentsVO.POL_NO_FK,     
+       DssPtPsrCcCommentsVO.REMARKS,     
+       DssPtPsrCcCommentsVO.REMARKS1,     
+       DssPtPsrCcCommentsVO.REMARKS2,     
+       DssPtPsrCcCommentsVO.STATUS,     
+       DssPtPsrCcCommentsVO.STATUS_ID_FK,     
+       DssPtPsrCcCommentsVO.USER_ID_FK,   
+       DECODE(DssPtPsrCcCommentsVO.REMARKS, NULL, 'FALSE','TRUE') REMARKS_FLAG,       
+       DECODE(DssPtPsrCcCommentsVO.REMARKS1, NULL, 'FALSE','TRUE') REMARKS1_FLAG,       
+       DECODE(DssPtPsrCcCommentsVO.REMARKS2, NULL, 'FALSE','TRUE') REMARKS2_FLAG    
+FROM  DSS_PT_CC_COMMENTS DssPtPsrCcCommentsVO  
+WHERE 1=1  
+AND DssPtPsrCcCommentsVO.COMMENTS_TYPE = 'PSR']]></SQLQuery>
+  <EntityUsage
+    Name="DssPtPsrCcCommentsVO"
+    Entity="pqt.dss.ptrf.model.eo.psr.DssPtPsrCcCommentsEo"/>
+  <ViewAttribute
+    Name="PolTransferIdPk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PolTransferIdPk"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="POL_TRANSFER_ID_PK"/>
+  <ViewAttribute
+    Name="CallAttempt"
+    PrecisionRule="true"
+    EntityAttrName="CallAttempt"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="CALL_ATTEMPT"
+    LOVName="LOV_CallAttempt">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVO.CallAttempt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CallResponse"
+    PrecisionRule="true"
+    EntityAttrName="CallResponse"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="CALL_RESPONSE"
+    LOVName="LOV_CallResponse">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVO.CallResponse_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CommentsType"
+    PrecisionRule="true"
+    EntityAttrName="CommentsType"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="COMMENTS_TYPE"/>
+  <ViewAttribute
+    Name="EnterDate"
+    PrecisionRule="true"
+    EntityAttrName="EnterDate"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="ENTER_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVO.EnterDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVO.EnterDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVO.EnterDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="PolNoFk"
+    PrecisionRule="true"
+    EntityAttrName="PolNoFk"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="POL_NO_FK"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="REMARKS"/>
+  <ViewAttribute
+    Name="Remarks1"
+    PrecisionRule="true"
+    EntityAttrName="Remarks1"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="REMARKS1"/>
+  <ViewAttribute
+    Name="Remarks2"
+    PrecisionRule="true"
+    EntityAttrName="Remarks2"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="REMARKS2"/>
+  <ViewAttribute
+    Name="Status"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVO.Status_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StatusIdFk"
+    PrecisionRule="true"
+    EntityAttrName="StatusIdFk"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="STATUS_ID_FK"
+    LOVName="LOV_StatusIdFk">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVO.StatusIdFk_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UserIdFk"
+    PrecisionRule="true"
+    EntityAttrName="UserIdFk"
+    EntityUsage="DssPtPsrCcCommentsVO"
+    AliasName="USER_ID_FK"/>
+  <ViewAttribute
+    Name="RemarksFlag"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="REMARKS_FLAG"
+    Expression="REMARKS_FLAG"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Remarks1Flag"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="REMARKS1_FLAG"
+    Expression="REMARKS1_FLAG"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Remarks2Flag"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="REMARKS2_FLAG"
+    Expression="REMARKS2_FLAG"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DisableRemarks"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    DefaultValue="Y"/>
+  <ViewLinkAccessor
+    Name="DssPtPsrCommentsHeaderQVO"
+    ViewLink="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.ptrf.model.PtrfModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

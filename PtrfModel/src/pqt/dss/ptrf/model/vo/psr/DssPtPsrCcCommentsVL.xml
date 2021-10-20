@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssPtPsrCcCommentsVL"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="DssPtPsrCommentsHeaderQVO"
+    Cardinality="1"
+    Source="true"
+    Owner="pqt.dss.ptrf.model.vo.psr.DssPtPsrCommentsHeaderQVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="DssPtPsrCommentsHeaderQVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.ptrf.model.vo.psr.DssPtPsrCommentsHeaderQVO.PolNo"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="DssPtPsrCcCommentsVO"
+    Cardinality="-1"
+    Owner="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="DssPtPsrCcCommentsVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.ptrf.model.vo.psr.DssPtPsrCcCommentsVO.PolNoFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.ptrf.model.PtrfModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssPlanTransferLineDetailsView"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  SelectList="DssPlanTransferLineDetails.TR_DETAIL_ID_PK, 
+       DssPlanTransferLineDetails.TR_LINE_ID_FK, 
+       DssPlanTransferLineDetails.TR_HEADER_ID_FK, 
+       DssPlanTransferLineDetails.USER_ID_FK, 
+       DssPlanTransferLineDetails.ENTER_DATE, 
+       DssPlanTransferLineDetails.LAST_UPDATED_BY, 
+       DssPlanTransferLineDetails.LAST_UPDATED_DATE, 
+       DssPlanTransferLineDetails.POLICY_NO, 
+       DssPlanTransferLineDetails.AGENT_NO_FK, 
+       DssPlanTransferLineDetails.PARTICIPANT_NAME, 
+       DssPlanTransferLineDetails.COMMENCEMENT_DATE, 
+       DssPlanTransferLineDetails.REGULAR_CONTRIBTION, 
+       DssPlanTransferLineDetails.PLAN_MODE, 
+       DssPlanTransferLineDetails.DUE_DATE_LAST_PAYMENT, 
+       DssPlanTransferLineDetails.STATUS"
+  FromList="DSS_PLAN_TRANSFER_LINE_DETAILS DssPlanTransferLineDetails">
+  <ViewAccessor
+    Name="PolicyNoVoLOV1"
+    ViewObjectName="pqt.dss.ptrf.model.lov.PolicyNoVoLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_PolicyNo"
+    ListVOName="PolicyNoVoLOV1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PolicyNo"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="AgentNoFk"/>
+      <Item Value="CommencementDate"/>
+      <Item Value="PlanMode"/>
+      <Item Value="DueDateLastPayment"/>
+      <Item Value="ParticipantName"/>
+      <Item Value="Status"/>
+      <Item Value="RegularContribtion"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="VPolicyNo"/>
+      <Item Value="NAgentNo"/>
+      <Item Value="DCommencement"/>
+      <Item Value="VPymtDesc"/>
+      <Item Value="LastPaymentDate"/>
+      <Item Value="VName"/>
+      <Item Value="VStatusDesc"/>
+      <Item Value="NContribution"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="VPolicyNo"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="PolicyNoVoLOVCriteria"/>
+  </ListBinding>
+  <EntityUsage
+    Name="DssPlanTransferLineDetails"
+    Entity="pqt.dss.ptrf.model.eo.DssPlanTransferLineDetails"/>
+  <ViewAttribute
+    Name="TrDetailIdPk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TrDetailIdPk"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="TR_DETAIL_ID_PK"/>
+  <ViewAttribute
+    Name="TrLineIdFk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TrLineIdFk"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="TR_LINE_ID_FK"/>
+  <ViewAttribute
+    Name="TrHeaderIdFk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TrHeaderIdFk"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="TR_HEADER_ID_FK"/>
+  <ViewAttribute
+    Name="UserIdFk"
+    PrecisionRule="true"
+    EntityAttrName="UserIdFk"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="USER_ID_FK"/>
+  <ViewAttribute
+    Name="EnterDate"
+    PrecisionRule="true"
+    EntityAttrName="EnterDate"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="ENTER_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="PolicyNo"
+    PrecisionRule="true"
+    EntityAttrName="PolicyNo"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="POLICY_NO"
+    LOVName="LOV_PolicyNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.PolicyNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AgentNoFk"
+    PrecisionRule="true"
+    EntityAttrName="AgentNoFk"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="AGENT_NO_FK"/>
+  <ViewAttribute
+    Name="ParticipantName"
+    PrecisionRule="true"
+    EntityAttrName="ParticipantName"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="PARTICIPANT_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.ParticipantName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CommencementDate"
+    PrecisionRule="true"
+    EntityAttrName="CommencementDate"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="COMMENCEMENT_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.CommencementDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.CommencementDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.CommencementDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RegularContribtion"
+    PrecisionRule="true"
+    EntityAttrName="RegularContribtion"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="REGULAR_CONTRIBTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.RegularContribtion_LABEL"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.RegularContribtion_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.RegularContribtion_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PlanMode"
+    PrecisionRule="true"
+    EntityAttrName="PlanMode"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="PLAN_MODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.PlanMode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DueDateLastPayment"
+    PrecisionRule="true"
+    EntityAttrName="DueDateLastPayment"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="DUE_DATE_LAST_PAYMENT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.DueDateLastPayment_LABEL"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.DueDateLastPayment_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.DueDateLastPayment_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Status"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="DssPlanTransferLineDetails"
+    AliasName="STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLineDetailsView.Status_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="DssPlanTransferLinesView"
+    ViewLink="pqt.dss.ptrf.model.vo.TrLineIdFk1Link"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.ptrf.model.PtrfModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

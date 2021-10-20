@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssPlanTransferLineDetails"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="DSS_PLAN_TRANSFER_LINE_DETAILS"
+  AliasName="DssPlanTransferLineDetails"
+  BindingStyle="OracleName"
+  RowClass="pqt.dss.ptrf.model.eo.DssPlanTransferLineDetailsImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="TrDetailIdPk"
+    IsNotNull="true"
+    ColumnName="TR_DETAIL_ID_PK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="TrLineIdFk"
+    IsNotNull="true"
+    ColumnName="TR_LINE_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS"/>
+  <Attribute
+    Name="TrHeaderIdFk"
+    IsNotNull="true"
+    ColumnName="TR_HEADER_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS"/>
+  <Attribute
+    Name="UserIdFk"
+    ColumnName="USER_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS"/>
+  <Attribute
+    Name="EnterDate"
+    ColumnName="ENTER_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS"/>
+  <Attribute
+    Name="PolicyNo"
+    Precision="50"
+    ColumnName="POLICY_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AgentNoFk"
+    ColumnName="AGENT_NO_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS"/>
+  <Attribute
+    Name="ParticipantName"
+    Precision="200"
+    ColumnName="PARTICIPANT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CommencementDate"
+    ColumnName="COMMENCEMENT_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS"/>
+  <Attribute
+    Name="RegularContribtion"
+    ColumnName="REGULAR_CONTRIBTION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS"/>
+  <Attribute
+    Name="PlanMode"
+    Precision="50"
+    ColumnName="PLAN_MODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DueDateLastPayment"
+    ColumnName="DUE_DATE_LAST_PAYMENT"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS"/>
+  <Attribute
+    Name="Status"
+    Precision="50"
+    ColumnName="STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_PLAN_TRANSFER_LINE_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="DssPlanTransferLines"
+    Association="pqt.dss.ptrf.model.eo.TrLineIdFk1Assoc"
+    AssociationEnd="pqt.dss.ptrf.model.eo.TrLineIdFk1Assoc.DssPlanTransferLines"
+    AssociationOtherEnd="pqt.dss.ptrf.model.eo.TrLineIdFk1Assoc.DssPlanTransferLineDetails"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="TrDetailIdPk1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="TR_DETAIL_ID_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.ptrf.model.eo.DssPlanTransferLineDetails.TrDetailIdPk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TrLineIdFk1">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="TR_LINE_IDPK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="TR_LINE_ID_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.ptrf.model.eo.DssPlanTransferLineDetails.TrLineIdFk"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.ptrf.model.PtrfModelBundle"/>
+  </ResourceBundle>
+</Entity>

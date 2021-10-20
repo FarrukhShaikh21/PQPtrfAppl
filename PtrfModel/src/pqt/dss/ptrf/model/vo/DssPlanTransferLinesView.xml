@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssPlanTransferLinesView"
+  Version="12.2.1.3.15"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="AgntDtlLovVO1"
+    ViewObjectName="pqt.dss.ptrf.model.lov.AgntDtlLovVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ToAgntDtlLovVOCriteria"
+      FullName="pqt.dss.ptrf.model.lov.AgntDtlLovVO.ToAgntDtlLovVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="VC_To_Branch_Code">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[BranchCodeFk]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="VC_FROM_AGNT_NO_FK">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[DssPlanTransferHeaderView?.FromAgentNoFk]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="BranchLovVo1"
+    ViewObjectName="pqt.dss.ptrf.model.lov.BranchLovVo"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ToBranchLovVoCriteria"
+      FullName="pqt.dss.ptrf.model.lov.BranchLovVo.ToBranchLovVoCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="VC_EmpIdFk">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[UserIdFk]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_Tagentcode"
+    ListVOName="AgntDtlLovVO1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Tagentcode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Tagentname"/>
+      <Item Value="Tdesignation"/>
+      <Item Value="ToAgentNoFk"/>
+      <Item Value="ToAgentPortfolio"/>
+      <Item Value="ToPersisThrd"/>
+      <Item Value="ToPersisSec"/>
+      <Item Value="ToQuaterlyBus"/>
+      <Item Value="ToQuaterlyBusPol"/>
+      <Item Value="ToHalfYearlyBus"/>
+      <Item Value="ToHalfYearlyBusPol"/>
+      <Item Value="ToYearlyBus"/>
+      <Item Value="ToYearlyBusPol"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="VAgentCode"/>
+      <Item Value="AgentName"/>
+      <Item Value="AgentRank"/>
+      <Item Value="NAgentNo"/>
+      <Item Value="Portfolio"/>
+      <Item Value="AvgPersisSecOnward"/>
+      <Item Value="AvgPersisThrdOnward"/>
+      <Item Value="NCqBus"/>
+      <Item Value="NCqBusPol"/>
+      <Item Value="NHyBus"/>
+      <Item Value="NHyBusPol"/>
+      <Item Value="NYrBus"/>
+      <Item Value="NYrBusPol"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="VAgentCode"/>
+      <Item Value="AgentName"/>
+      <Item Value="AgentRank"/>
+      <Item Value="MgrAgentName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ToAgntDtlLovVOCriteria"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Tbranchname"
+    ListVOName="BranchLovVo1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Tbranchname"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BranchCodeFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="VBranchName"/>
+      <Item Value="VBranchCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="VBranchCode"/>
+      <Item Value="VBranchName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ToBranchLovVoCriteria"/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT DSSPLANTRANSFERLINES.TR_LINE_ID_PK, 
+       DSSPLANTRANSFERLINES.TR_HEADER_ID_FK, 
+       DSSPLANTRANSFERLINES.USER_ID_FK, 
+       DSSPLANTRANSFERLINES.ENTER_DATE, 
+       DSSPLANTRANSFERLINES.LAST_UPDATED_BY, 
+       DSSPLANTRANSFERLINES.LAST_UPDATED_DATE, 
+       DSSPLANTRANSFERLINES.TO_AGENT_NO_FK, 
+       DSSPLANTRANSFERLINES.BRANCH_CODE_FK, 
+       DSSPLANTRANSFERLINES.TO_PERSIS_SEC, 
+       DSSPLANTRANSFERLINES.TO_PERSIS_THRD, 
+       DSSPLANTRANSFERLINES.TO_QUATERLY_BUS_POL, 
+       DSSPLANTRANSFERLINES.TO_QUATERLY_BUS, 
+       DSSPLANTRANSFERLINES.TO_HALF_YEARLY_BUS_POL, 
+       DSSPLANTRANSFERLINES.TO_HALF_YEARLY_BUS, 
+       DSSPLANTRANSFERLINES.TO_YEARLY_BUS_POL, 
+       DSSPLANTRANSFERLINES.TO_YEARLY_BUS, 
+       DSSPLANTRANSFERLINES.TO_AGENT_PORTFOLIO, 
+       DSSPLANTRANSFERLINES.FROM_AGENT_NO_FK, 
+       TAGENT.V_AGENT_CODE                         TAGENTCODE, 
+       TAGENT.AGENT_NAME                           TAGENTNAME, 
+       TAGENT.AGENT_RANK                           TDESIGNATION, 
+       TBR.V_BRANCH_NAME                           TBRANCHNAME 
+  FROM DSS_PLAN_TRANSFER_LINES  DSSPLANTRANSFERLINES, 
+       VU_DSS_PTRF_AGENT_DETAIL TAGENT, 
+       VU_DSS_ST_BRANCH         TBR 
+ WHERE DSSPLANTRANSFERLINES.TO_AGENT_NO_FK = TAGENT.N_AGENT_NO 
+   AND DSSPLANTRANSFERLINES.BRANCH_CODE_FK = TBR.V_BRANCH_CODE]]></SQLQuery>
+  <EntityUsage
+    Name="DssPlanTransferLines"
+    Entity="pqt.dss.ptrf.model.eo.DssPlanTransferLines"/>
+  <ViewAttribute
+    Name="TrLineIdPk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TrLineIdPk"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="TR_LINE_ID_PK"/>
+  <ViewAttribute
+    Name="TrHeaderIdFk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TrHeaderIdFk"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="TR_HEADER_ID_FK"/>
+  <ViewAttribute
+    Name="UserIdFk"
+    PrecisionRule="true"
+    EntityAttrName="UserIdFk"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="USER_ID_FK"/>
+  <ViewAttribute
+    Name="EnterDate"
+    PrecisionRule="true"
+    EntityAttrName="EnterDate"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="ENTER_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.EnterDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.EnterDate_FMT_FORMAT"/>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.EnterDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="ToAgentNoFk"
+    PrecisionRule="true"
+    EntityAttrName="ToAgentNoFk"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="TO_AGENT_NO_FK"/>
+  <ViewAttribute
+    Name="BranchCodeFk"
+    PrecisionRule="true"
+    EntityAttrName="BranchCodeFk"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="BRANCH_CODE_FK"/>
+  <ViewAttribute
+    Name="ToPersisSec"
+    PrecisionRule="true"
+    EntityAttrName="ToPersisSec"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="TO_PERSIS_SEC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToPersisSec_LABEL"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToPersisSec_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToPersisSec_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToPersisThrd"
+    PrecisionRule="true"
+    EntityAttrName="ToPersisThrd"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="TO_PERSIS_THRD">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToPersisThrd_LABEL"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToPersisThrd_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToPersisThrd_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToQuaterlyBusPol"
+    PrecisionRule="true"
+    EntityAttrName="ToQuaterlyBusPol"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="TO_QUATERLY_BUS_POL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToQuaterlyBusPol_LABEL"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToQuaterlyBusPol_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToQuaterlyBusPol_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToQuaterlyBus"
+    PrecisionRule="true"
+    EntityAttrName="ToQuaterlyBus"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="TO_QUATERLY_BUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToQuaterlyBus_LABEL"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToQuaterlyBus_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToQuaterlyBus_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToHalfYearlyBusPol"
+    PrecisionRule="true"
+    EntityAttrName="ToHalfYearlyBusPol"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="TO_HALF_YEARLY_BUS_POL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToHalfYearlyBusPol_LABEL"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToHalfYearlyBusPol_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToHalfYearlyBusPol_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToHalfYearlyBus"
+    PrecisionRule="true"
+    EntityAttrName="ToHalfYearlyBus"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="TO_HALF_YEARLY_BUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToHalfYearlyBus_LABEL"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToHalfYearlyBus_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToHalfYearlyBus_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToYearlyBusPol"
+    PrecisionRule="true"
+    EntityAttrName="ToYearlyBusPol"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="TO_YEARLY_BUS_POL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToYearlyBusPol_LABEL"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToYearlyBusPol_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToYearlyBusPol_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToYearlyBus"
+    PrecisionRule="true"
+    EntityAttrName="ToYearlyBus"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="TO_YEARLY_BUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToYearlyBus_LABEL"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToYearlyBus_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToYearlyBus_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToAgentPortfolio"
+    PrecisionRule="true"
+    EntityAttrName="ToAgentPortfolio"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="TO_AGENT_PORTFOLIO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToAgentPortfolio_LABEL"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToAgentPortfolio_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.ToAgentPortfolio_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FromAgentNoFk"
+    PrecisionRule="true"
+    EntityAttrName="FromAgentNoFk"
+    EntityUsage="DssPlanTransferLines"
+    AliasName="FROM_AGENT_NO_FK">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="DssPlanTransferLinesViewRow"/>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Tagentcode"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TAGENTCODE"
+    Expression="TAGENTCODE"
+    SQLType="VARCHAR"
+    LOVName="LOV_Tagentcode"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.Tagentcode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Tagentname"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TAGENTNAME"
+    Expression="TAGENTNAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.Tagentname_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Tdesignation"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TDESIGNATION"
+    Expression="TDESIGNATION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.Tdesignation_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Tbranchname"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TBRANCHNAME"
+    Expression="TBRANCHNAME"
+    SQLType="VARCHAR"
+    LOVName="LOV_Tbranchname"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.Tbranchname_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="calLineDtlRow"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="DssPlanTransferLinesViewRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.ptrf.model.vo.DssPlanTransferLinesView.calLineDtlRow_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="DssPlanTransferLineDetailsView"
+    ViewLink="pqt.dss.ptrf.model.vo.TrLineIdFk1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="DssPlanTransferHeaderView"
+    ViewLink="pqt.dss.ptrf.model.vo.TrHeaderFkLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.ptrf.model.PtrfModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

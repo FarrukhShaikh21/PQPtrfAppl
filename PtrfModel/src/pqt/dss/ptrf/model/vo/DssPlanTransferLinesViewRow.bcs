@@ -1,0 +1,19 @@
+//Groovy Scripts for pqt.dss.ptrf.model.vo.DssPlanTransferLinesView
+
+package pqt.dss.ptrf.model.vo
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="FromAgentNoFk")
+def FromAgentNoFk_ExpressionScript_Expression()
+{
+DssPlanTransferHeaderView?.FromAgentNoFk
+}
+
+
+@TransientValueExpression(attributeName="calLineDtlRow")
+def calLineDtlRow_ExpressionScript_Expression()
+{
+DssPlanTransferLineDetailsView.count("PolicyNo")
+}
+

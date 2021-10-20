@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CallAttmptPopup"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="pqt.dss.ptrf.model.popUp.CallAttmptPopup_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_STATUS_ID_FK"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Number"/>
+  <SQLQuery><![CDATA[SELECT CALL_ATTMPT_ID_PK, CALL_ATTEMPT_DECS, PT_CC_STATUS_D_FK   
+  FROM DSS_PT_CC_CLATTEMPT_ST]]></SQLQuery>
+  <ViewAttribute
+    Name="CallAttmptIdPk"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="CALL_ATTMPT_ID_PK"
+    Expression="CALL_ATTMPT_ID_PK"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="CallAttemptDecs"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CALL_ATTEMPT_DECS"
+    Expression="CALL_ATTEMPT_DECS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PtCcStatusDFk"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="PT_CC_STATUS_D_FK"
+    Expression="PT_CC_STATUS_D_FK"
+    SQLType="NUMERIC"/>
+  <ViewCriteria
+    Name="CallAttmptPopupCriteria"
+    ViewObjectName="pqt.dss.ptrf.model.popUp.CallAttmptPopup"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CallAttmptPopupCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PtCcStatusDFk"
+        ViewAttribute="PtCcStatusDFk"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_STATUS_ID_FK"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.ptrf.model.PtrfModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
